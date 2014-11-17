@@ -14,8 +14,7 @@ string prettify (int entry) {
   else {return "+"+to_string(entry)+" ";}
 }
 
-int main() 
-{
+int main()  {
   string str1;
   string str2;
   int num;
@@ -34,61 +33,63 @@ int main()
   vector<vector<char>> ntideMatrix(str2.size(),vector<char>(str1.size()));
 
   //check for matches
-  for (int i=0; i<height; i++) {
-    for (int j=0; j<width; j++) {
+  for (int i = 0; i < height; i++) {
+    for (int j = 0; j < width; j++) {
       bool check = true;
-      for (int k=0; k<num; k++) {
-	if(str1[j+k] != str2[i+k]) {
-	  check = false;
-	}
+      for (int k = 0; k < num; k++) {
+        if (str1[j+k] != str2[i+k]) {
+          check = false;
+        }
       }
       if (check == true) {
-	boolMatrix[i][j]=true;
-	valMatrix[i][j]=j-i;
-	for (int k=0; k<num; k++) {
-	  ntideMatrix[i+k][j+k]=str1[j+k];
-	}
+	      boolMatrix[i][j]=true;
+	      valMatrix[i][j]=j-i;
+	      for (int k = 0; k < num; k++) {
+	        ntideMatrix[i+k][j+k] = str1[j+k];
+	      }
       }
     }
   }
   
-  //print out matrices
-  //match ratings
+  // print out matrices
+  // match ratings
   cout << endl;
-  for (int i=0; i<height; i++) {
+  for (int i = 0; i < height; i++) {
     cout << "|";
-    for (int j=0; j<width; j++) {
+    for (int j = 0; j < width; j++) {
       if (boolMatrix[i][j]) {
-	cout << prettify(valMatrix[i][j]) << "|";
+	      cout << prettify(valMatrix[i][j]) << "|";
       }
       else {
-	cout << "   |";
+	      cout << "   |";
       }
     }
     cout << endl;
   }
 
   cout << endl;
-  //string comparison
-  //string 1 across top
+  // string comparison
+  // string 1 across top
   cout << "    ";
-  for (unsigned int x=0; x<str1.size(); x++) {
+  for (unsigned int x = 0; x < str1.size(); x++) {
     cout << str1[x] << " ";
   }
   cout << endl;
 
   //everything else
-  for (unsigned int i=0; i<str2.size(); i++) {
+  for (unsigned int i = 0; i < str2.size(); i++) {
     cout << " " << str2[i] << " |";
-    for (unsigned int j=0; j<str1.size(); j++) {
+    for (unsigned int j = 0; j < str1.size(); j++) {
       if (ntideMatrix[i][j]) {
-	cout << ntideMatrix[i][j];
+	      cout << ntideMatrix[i][j];
       }
       else {
-	cout << " ";
+	      cout << " ";
       }
       cout  << "|";
     }
     cout << endl;
   }
+  
+  return 0;
 }
