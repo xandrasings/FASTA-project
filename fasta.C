@@ -1,11 +1,11 @@
 /* fasta funtimes */
 
-using namespace std;
 #include <vector>
 #include <string>
 #include <sstream>
 #include <iostream>
 #include <algorithm>
+using namespace std;
 
 string prettify (int entry) {
   if (entry <= -10) {return to_string(entry);}
