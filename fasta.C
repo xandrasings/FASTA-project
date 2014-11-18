@@ -28,9 +28,9 @@ int main()  {
   //create necessary matrices
   int width = str1.size()-num+1;
   int height = str2.size()-num+1;
-  vector<vector<bool>> boolMatrix(height,vector<bool>(width));
-  vector<vector<int>> valMatrix(height,vector<int>(width));
-  vector<vector<char>> ntideMatrix(str2.size(),vector<char>(str1.size()));
+  vector< vector<bool> > boolMatrix(height,vector<bool>(width));
+  vector< vector<int> > valMatrix(height,vector<int>(width));
+  vector< vector<char> > ntideMatrix(str2.size(),vector<char>(str1.size()));
 
   //check for matches
   for (int i = 0; i < height; i++) {
