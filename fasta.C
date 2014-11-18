@@ -42,15 +42,15 @@ int main()  {
         }
       }
       if (check == true) {
-	      boolMatrix[i][j]=true;
-	      valMatrix[i][j]=j-i;
-	      for (int k = 0; k < num; k++) {
-	        ntideMatrix[i+k][j+k] = str1[j+k];
-	      }
+        boolMatrix[i][j]=true;
+        valMatrix[i][j]=j-i;
+        for (int k = 0; k < num; k++) {
+          ntideMatrix[i+k][j+k] = str1[j+k];
+        }
       }
     }
   }
-  
+
   // print out matrices
   // match ratings
   cout << endl;
@@ -58,10 +58,10 @@ int main()  {
     cout << "|";
     for (int j = 0; j < width; j++) {
       if (boolMatrix[i][j]) {
-	      cout << prettify(valMatrix[i][j]) << "|";
+        cout << prettify(valMatrix[i][j]) << "|";
       }
       else {
-	      cout << "   |";
+        cout << "   |";
       }
     }
     cout << endl;
@@ -81,15 +81,15 @@ int main()  {
     cout << " " << str2[i] << " |";
     for (unsigned int j = 0; j < str1.size(); j++) {
       if (ntideMatrix[i][j]) {
-	      cout << ntideMatrix[i][j];
+        cout << ntideMatrix[i][j];
       }
       else {
-	      cout << " ";
+        cout << " ";
       }
       cout  << "|";
     }
     cout << endl;
   }
-  
+
   return 0;
 }
