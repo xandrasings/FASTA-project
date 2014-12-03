@@ -5,6 +5,7 @@
 #include <sstream>
 #include <iostream>
 #include <algorithm>
+#include "Match.h"
 using namespace std;
 
 string prettify (int entry) {
