@@ -32,6 +32,7 @@ int main()  {
   vector< vector<bool> > boolMatrix(height,vector<bool>(width));
   vector< vector<int> > valMatrix(height,vector<int>(width));
   vector< vector<char> > ntideMatrix(str2.size(),vector<char>(str1.size()));
+  vector< vector<Match> > matchMatrix(height, vector<Match>(width));
 
   //check for matches
   for (int i = 0; i < height; i++) {
@@ -45,6 +46,8 @@ int main()  {
       if (check == true) {
         boolMatrix[i][j]=true;
         valMatrix[i][j]=j-i;
+        Match tempMatch((j-i),j,i);
+        matchMatrix[i][j]=tempMatch;
         for (int k = 0; k < num; k++) {
           ntideMatrix[i+k][j+k] = str1[j+k];
         }
