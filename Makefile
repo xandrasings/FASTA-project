@@ -1,4 +1,5 @@
 GCC_ARGS = -g -Wall -std=c++11
+BINARY = ./fasta
 
 .PHONY: test run clean
 
@@ -7,11 +8,14 @@ all: fasta
 clean:
 	rm *.o $(BINARY)
 
+run: fasta
+	$(BINARY) -q < test/testcase_1.txt
+
 test: fasta
-	./fasta < test/test_input.txt | diff test/test_output.txt
+	$(BINARY) -q < test/testcase_1.txt | diff test/expected_output_1.txt -
 
 fasta: fasta.o
-	g++ $(GCC_ARGS) fasta.o Match.o -o fasta
+	g++ $(GCC_ARGS) fasta.o Match.o -o $(BINARY)
 
 fasta.o: fasta.C Match.o
 	g++ $(GCC_ARGS) -c fasta.C
