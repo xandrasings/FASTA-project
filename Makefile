@@ -1,5 +1,7 @@
 GCC_ARGS = -g -Wall -std=c++11
 
+.PHONY: test run clean
+
 all: fasta
 
 test: fasta
