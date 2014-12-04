@@ -4,6 +4,9 @@ GCC_ARGS = -g -Wall -std=c++11
 
 all: fasta
 
+clean:
+	rm *.o $(BINARY)
+
 test: fasta
 	./fasta < test/test_input.txt | diff test/test_output.txt
 
