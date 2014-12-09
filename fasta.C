@@ -15,16 +15,40 @@ string prettify (int entry) {
   else {return "+"+to_string(entry)+" ";}
 }
 
-int main()  {
+struct Input {
   string str1;
   string str2;
   int num;
-  cout << "Please enter the first string: ";
-  cin >> str1;
-  cout << "Please enter the second string: ";
-  cin >> str2;
-  cout << "Please enter number of choice: ";
-  cin >> num;
+};
+
+Input get_input(vector<string> args) {
+  Input values;
+
+  bool quiet = false;
+  if (args.at(1) == "-q")
+    quiet = true;
+
+  if (!quiet) cout << "Please enter the first string: ";
+  cin >> values.str1;
+
+  if (!quiet) cout << "Please enter the second string: ";
+  cin >> values.str2;
+
+  if (!quiet) cout << "Please enter number of choice: ";
+  cin >> values.num;
+
+  return values;
+}
+
+int main(int argc, const char* argv[]) {
+  vector<string> args;
+  for (int i = 0; i < argc; i++)
+    args.push_back(argv[i]);
+
+  Input input = get_input(args);
+  string str1 = input.str1;
+  string str2 = input.str2;
+  int num = input.num;
 
   //create necessary matrices
   int width = str1.size()-num+1;
