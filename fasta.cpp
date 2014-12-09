@@ -8,11 +8,11 @@
 #include "Match.h"
 using namespace std;
 
-string prettify (int entry) {
-  if (entry <= -10) {return to_string(entry);}
-  else if (entry < 0) {return to_string(entry)+" ";}
-  else if (entry >= 10) {return "+"+to_string(entry);}
-  else {return "+"+to_string(entry)+" ";}
+string prettify(int entry) {
+  if (entry <= -10) {return std::to_string(entry);}
+  else if (entry < 0) {return to_string(entry) + " ";}
+  else if (entry >= 10) {return "+" + to_string(entry);}
+  else {return "+" + to_string(entry)+" ";}
 }
 
 struct Input {
@@ -50,15 +50,15 @@ int main(int argc, const char* argv[]) {
   string str2 = input.str2;
   int num = input.num;
 
-  //create necessary matrices
+  // create necessary matrices
   int width = str1.size()-num+1;
   int height = str2.size()-num+1;
-  vector< vector<bool> > boolMatrix(height,vector<bool>(width));
-  vector< vector<int> > valMatrix(height,vector<int>(width));
-  vector< vector<char> > ntideMatrix(str2.size(),vector<char>(str1.size()));
+  vector< vector<bool> > boolMatrix(height, vector<bool>(width));
+  vector< vector<int> > valMatrix(height, vector<int>(width));
+  vector< vector<char> > ntideMatrix(str2.size(), vector<char>(str1.size()));
   vector< vector<Match> > matchMatrix(height, vector<Match>(width));
 
-  //check for matches
+  // check for matches
   for (int i = 0; i < height; i++) {
     for (int j = 0; j < width; j++) {
       bool check = true;
@@ -68,10 +68,10 @@ int main(int argc, const char* argv[]) {
         }
       }
       if (check == true) {
-        boolMatrix[i][j]=true;
-        valMatrix[i][j]=j-i;
-        Match tempMatch((j-i),j,i);
-        matchMatrix[i][j]=tempMatch;
+        boolMatrix[i][j] = true;
+        valMatrix[i][j] = j-i;
+        Match tempMatch((j-i), j, i);
+        matchMatrix[i][j] = tempMatch;
         for (int k = 0; k < num; k++) {
           ntideMatrix[i+k][j+k] = str1[j+k];
         }
@@ -104,7 +104,7 @@ int main(int argc, const char* argv[]) {
   }
   cout << endl;
 
-  //everything else
+  // everything else
   for (unsigned int i = 0; i < str2.size(); i++) {
     cout << " " << str2[i] << " |";
     for (unsigned int j = 0; j < str1.size(); j++) {
