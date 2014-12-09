@@ -17,8 +17,8 @@ test: fasta
 fasta: fasta.o
 	g++ $(GCC_ARGS) fasta.o Match.o -o $(BINARY)
 
-fasta.o: fasta.C Match.o
-	g++ $(GCC_ARGS) -c fasta.C
+fasta.o: fasta.cpp Match.o
+	g++ $(GCC_ARGS) -c fasta.cpp
 
-Match.o: Match.h Match.C
-	g++ $(GCC_ARGS) -c Match.C
+Match.o: Match.h Match.cpp
+	g++ $(GCC_ARGS) -c Match.cpp
