@@ -9,7 +9,7 @@
 using namespace std;
 
 string prettify(int entry) {
-  if (entry <= -10) {return std::to_string(entry);}
+  if (entry <= -10) {return to_string(entry);}
   else if (entry < 0) {return to_string(entry) + " ";}
   else if (entry >= 10) {return "+" + to_string(entry);}
   else {return "+" + to_string(entry)+" ";}
@@ -51,8 +51,8 @@ int main(int argc, const char* argv[]) {
   int num = input.num;
 
   // create necessary matrices
-  int width = str1.size()-num+1;
-  int height = str2.size()-num+1;
+  int width = str1.size() - num + 1;
+  int height = str2.size() - num + 1;
   vector< vector<bool> > boolMatrix(height, vector<bool>(width));
   vector< vector<int> > valMatrix(height, vector<int>(width));
   vector< vector<char> > ntideMatrix(str2.size(), vector<char>(str1.size()));
