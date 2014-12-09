@@ -15,4 +15,4 @@ public:
 	int getYCoor();
 };
 
-#endif // _DVD_
+#endif // _MATCH_
