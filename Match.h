@@ -28,6 +28,7 @@ protected:
 	vector<Match> comboVec;
 public:
 	Combo();
+	int size();
 	void add(Match newMatch);
 	void print();
 
@@ -40,7 +41,8 @@ class Catalog {
 protected:
 	vector<Combo> catalogVec;
 public:
-	Catalog();
+	Catalog(int size);
+	int size();
 	void add(Combo newCombo);
 	void print();
 

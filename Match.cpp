@@ -50,6 +50,10 @@ Combo::Combo() {
 	vector<Match> comboVec;
 }
 
+int Combo::size(){
+	return comboVec.size();
+}
+
 void Combo::add(Match newMatch){
 	comboVec.push_back(newMatch);
 }
@@ -67,8 +71,12 @@ ostream& operator<<(ostream& os, const Combo& c) {
 
 
 /***Catalogs***/
-Catalog::Catalog() {
-	vector<Match> comboVec;
+Catalog::Catalog(int size){
+	vector<Match> comboVec(size);
+}
+
+int Catalog::size(){
+	return catalogVec.size();
 }
 
 void Catalog::add(Combo newCombo){

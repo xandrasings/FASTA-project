@@ -1,2 +1,3 @@
 *.o
 fasta
+.DS_Store

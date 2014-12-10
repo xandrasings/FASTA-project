@@ -6,6 +6,7 @@
 #include <sstream>
 #include <iostream>
 #include <algorithm>
+#include <math.h>
 #include "Match.h"
 #include "arguments.cpp"
 using namespace std;
@@ -18,85 +19,89 @@ string prettify(int entry) {
 }
 
 int main(int argc, const char* argv[]) {
-	map<string, string> args = parse_arguments(argc, argv);
-	map<string, string> input = get_input(args);
+  map<string, string> args = parse_arguments(argc, argv);
+  map<string, string> input = get_input(args);
 
-	string str1 = input.at("string1");
-	string str2 = input.at("string2");
-	int alignmentCount = stoi(input.at("number"));
+  string str1 = input.at("string1");
+  string str2 = input.at("string2");
+  int num = stoi(input.at("number"));
 
-	cout << "Processed args: " << str1 << ' ' << str2 << ' ' << alignmentCount << endl;
+  cout << "Processed args: " << str1 << ' ' << str2 << ' ' << num << endl;
 
-	// create necessary matrices
-	int width = str1.size() - alignmentCount + 1;
-	int height = str2.size() - alignmentCount + 1;
-	vector< vector<bool> > boolMatrix(height, vector<bool>(width));
-	vector< vector<int> > valMatrix(height, vector<int>(width));
-	vector< vector<char> > ntideMatrix(str2.size(), vector<char>(str1.size()));
-	Combo allMatches;
+  // create necessary matrices
+  int width = str1.size() - num + 1;
+  int height = str2.size() - num + 1;
+  vector< vector<bool> > boolMatrix(height, vector<bool>(width));
+  vector< vector<int> > valMatrix(height, vector<int>(width));
+  vector< vector<char> > ntideMatrix(str2.size(), vector<char>(str1.size()));
+  Combo allMatches;
 
-	// check for matches
-	for (int i = 0; i < height; i++) {
-		for (int j = 0; j < width; j++) {
-			bool check = true;
-			for (int k = 0; k < alignmentCount; k++) {
-				if (str1[j+k] != str2[i+k]) {
-					check = false;
-				}
-			}
-			if (check == true) {
-				boolMatrix[i][j] = true;
-				valMatrix[i][j] = j-i;
-				allMatches.add(Match((j-i),j,i));
-				for (int k = 0; k < alignmentCount; k++) {
-					ntideMatrix[i+k][j+k] = str1[j+k];
-				}
-			}
-		}
-	}
+  // check for matches
+  for (int i = 0; i < height; i++) {
+    for (int j = 0; j < width; j++) {
+      bool check = true;
+      for (int k = 0; k < num; k++) {
+        if (str1[j+k] != str2[i+k]) {
+          check = false;
+        }
+      }
+      if (check == true) {
+        boolMatrix[i][j] = true;
+        valMatrix[i][j] = j-i;
+        allMatches.add(Match((j-i),j,i));
+        for (int k = 0; k < num; k++) {
+          ntideMatrix[i+k][j+k] = str1[j+k];
+        }
+      }
+    }
+  }
 
-	// print out matrices
-	// match ratings
-	cout << endl;
-	for (int i = 0; i < height; i++) {
-		cout << "|";
-		for (int j = 0; j < width; j++) {
-			if (boolMatrix[i][j]) {
-				cout << prettify(valMatrix[i][j]) << "|";
-			}
-			else {
-				cout << "   |";
-			}
-		}
-		cout << endl;
-	}
+  // print out matrices
+  // match ratings
+  cout << endl;
+  for (int i = 0; i < height; i++) {
+    cout << "|";
+    for (int j = 0; j < width; j++) {
+      if (boolMatrix[i][j]) {
+        cout << prettify(valMatrix[i][j]) << "|";
+      }
+      else {
+        cout << "   |";
+      }
+    }
+    cout << endl;
+  }
 
-	cout << endl;
-	// string comparison
-	// string 1 across top
-	cout << "    ";
-	for (unsigned int x = 0; x < str1.size(); x++) {
-		cout << str1[x] << " ";
-	}
-	cout << endl;
+  cout << endl;
+  // string comparison
+  // string 1 across top
+  cout << "    ";
+  for (unsigned int x = 0; x < str1.size(); x++) {
+    cout << str1[x] << " ";
+  }
+  cout << endl;
 
-	// everything else
-	for (unsigned int i = 0; i < str2.size(); i++) {
-		cout << " " << str2[i] << " |";
-		for (unsigned int j = 0; j < str1.size(); j++) {
-			if (ntideMatrix[i][j]) {
-				cout << ntideMatrix[i][j];
-			}
-			else {
-				cout << " ";
-			}
-			cout << "|";
-		}
-		cout << endl;
-	}
+  // everything else
+  for (unsigned int i = 0; i < str2.size(); i++) {
+    cout << " " << str2[i] << " |";
+    for (unsigned int j = 0; j < str1.size(); j++) {
+      if (ntideMatrix[i][j]) {
+        cout << ntideMatrix[i][j];
+      }
+      else {
+        cout << " ";
+      }
+      cout  << "|";
+    }
+    cout << endl;
+  }
 
-	// print summary of matches
-	allMatches.print();
+  //print summary of matches
+  allMatches.print();
 
-	return 0;
+  cout << allMatches.size() << pow(2,allMatches.size());
+//  cout << allMatches.size() << Catalog(pow(2,allMatches.size()).size();
+
+
+  return 0;
 }
