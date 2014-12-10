@@ -4,22 +4,22 @@
 using namespace std;
 
 /***Matches***/
-Match::Match(){
-	matchVal=0;
-	xCoor=-1;
-	yCoor=-1;
+Match::Match() {
+	matchVal = 0;
+	xCoor = -1;
+	yCoor = -1;
 }
 
 Match::Match(int val, int x, int y){
-	matchVal=val;
-	xCoor=x;
-	yCoor=y;
+	matchVal = val;
+	xCoor = x;
+	yCoor = y;
 }
 
 Match& Match::operator=(const Match& m){
-	matchVal=m.matchVal;
-	xCoor=m.xCoor;
-	yCoor=m.yCoor;
+	matchVal = m.matchVal;
+	xCoor = m.xCoor;
+	yCoor = m.yCoor;
 	return *this;
 }
 
@@ -46,7 +46,7 @@ ostream& operator<<(ostream& os, const Match& m) {
 
 
 /***Combinations***/
-Combo::Combo(){
+Combo::Combo() {
 	vector<Match> comboVec;
 }
 
@@ -67,7 +67,7 @@ ostream& operator<<(ostream& os, const Combo& c) {
 
 
 /***Catalogs***/
-Catalog::Catalog(){
+Catalog::Catalog() {
 	vector<Match> comboVec;
 }
 
