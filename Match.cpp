@@ -36,8 +36,14 @@ int Match::getYCoor(){
 }
 
 void Match::print(){
-	cout << matchVal << " (" << xCoor << "," << yCoor << ")" << endl;
+	cout << *this << endl;
 }
+
+ostream& operator<<(ostream& os, const Match& m) {
+    os << m.matchVal << " (" << m.xCoor << "," << m.yCoor << ")";
+    return os;
+}
+
 
 /***Combinations***/
 Combo::Combo(){
@@ -49,10 +55,16 @@ void Combo::add(Match newMatch){
 }
 
 void Combo::print(){
-  for (unsigned int i = 0; i < comboVec.size(); i++) {
-    comboVec.at(i).print();
-  }
+	cout << *this;
 }
+
+ostream& operator<<(ostream& os, const Combo& c) {
+	for (auto match : c.comboVec) {
+		os << match << endl;
+	}
+	return os;
+}
+
 
 /***Catalogs***/
 Catalog::Catalog(){
@@ -64,9 +76,14 @@ void Catalog::add(Combo newCombo){
 }
 
 void Catalog::print(){
-  for (unsigned int i = 0; i < catalogVec.size(); i++) {
-  	cout << "COMBO " << i+1 << endl;
-    catalogVec.at(i).print();
-  }
+	cout << *this;
 }
 
+ostream& operator<<(ostream& os, const Catalog& c) {
+	unsigned int i = 0;
+	for (auto match : c.catalogVec) {
+		os << "COMBO " << i++ << endl;
+		os << match << endl;
+	}
+	return os;
+}

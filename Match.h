@@ -17,7 +17,10 @@ public:
 	int getXCoor();
 	int getYCoor();
 	void print();
+
+	friend ostream& operator<<(ostream& os, const Match& m);
 };
+
 
 /***Combinations of Matches***/
 class Combo {
@@ -27,7 +30,10 @@ public:
 	Combo();
 	void add(Match newMatch);
 	void print();
+
+	friend ostream& operator<<(ostream& os, const Combo& c);
 };
+
 
 /***Combinations of Combinations of Matches***/
 class Catalog {
@@ -37,6 +43,8 @@ public:
 	Catalog();
 	void add(Combo newCombo);
 	void print();
+
+	friend ostream& operator<<(ostream& os, const Catalog& c);
 };
 
 #endif // _MATCH_
