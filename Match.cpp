@@ -48,18 +48,36 @@ ostream& operator<<(ostream& os, const Match& m) {
 /***Combinations***/
 Combo::Combo() {
 	vector<Match> comboVec;
+	float score;
 }
 
 int Combo::size(){
 	return comboVec.size();
 }
 
-void Combo::add(Match newMatch){
+float Combo::getScore() {
+	return score;
+}
+
+void Combo::setScore(float newScore){
+	score = newScore;
+}
+
+void Combo::calcScore() {
+	setScore(4.9);
+}
+
+void Combo::add(Match newMatch) {
 	comboVec.push_back(newMatch);
 }
 
-void Combo::print(){
+void Combo::print() {
 	cout << *this;
+}
+
+void Combo::printWithScore() {
+	print();
+	cout << score << endl;
 }
 
 ostream& operator<<(ostream& os, const Combo& c) {
@@ -79,12 +97,25 @@ int Catalog::size(){
 	return catalogVec.size();
 }
 
+void Catalog::calcScores() {
+	for(unsigned int i = 0; i < size(); i++) {
+		catalogVec.at(i).calcScore();
+	}
+}
+
 void Catalog::add(Combo newCombo){
 	catalogVec.push_back(newCombo);
 }
 
 void Catalog::print(){
 	cout << *this;
+}
+
+void Catalog::printWithScores() {
+	for(unsigned int i = 0; i < size(); i++) {
+		cout << "COMBO " << i << " with SCORE " << catalogVec.at(i).score << endl;
+		catalogVec.at(i).print();
+	}
 }
 
 ostream& operator<<(ostream& os, const Catalog& c) {

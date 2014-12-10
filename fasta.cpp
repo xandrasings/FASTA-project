@@ -95,9 +95,13 @@ int main(int argc, const char* argv[]) {
 		}
 		cout << endl;
 	}
-
+	cout << endl;
+	
 	//print summary of matches
+	cout << "All Matches:" << endl;
 	allMatches.print();
+	cout << endl;
+
 
 	//Create catalog
 	Catalog catalog;
@@ -108,6 +112,7 @@ int main(int argc, const char* argv[]) {
 		catalog.add(combo);
 	}
 
+	//Fill in empty combos with all possibilities.
 	for (unsigned int i = 0; i < allMatches.size(); i++) {
 		for (unsigned int j = 0; j < pow(2,i); j++) {
 			for (unsigned int k = 0; k < pow(2,allMatches.size()-i-1); k++) {
@@ -116,6 +121,8 @@ int main(int argc, const char* argv[]) {
 		}
 	}	
 
-	catalog.print();
+	catalog.calcScores();
+	catalog.printWithScores();
+	//use this to print all combos in the catalog!
 	return 0;
 }

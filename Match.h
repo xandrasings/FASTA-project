@@ -26,11 +26,16 @@ public:
 class Combo {
 public: //change to protected when you fix the thing
 	vector<Match> comboVec;
+	float score;
 public:
 	Combo();
 	int size();
+	float getScore();
+	void setScore(float newScore);
+	void calcScore();
 	void add(Match newMatch);
 	void print();
+	void printWithScore();
 
 	friend ostream& operator<<(ostream& os, const Combo& c);
 };
@@ -43,8 +48,10 @@ public: //change to protected when you fix the thing
 public:
 	Catalog();
 	int size();
+	void calcScores();
 	void add(Combo newCombo);
 	void print();
+	void printWithScores();
 
 	friend ostream& operator<<(ostream& os, const Catalog& c);
 };
