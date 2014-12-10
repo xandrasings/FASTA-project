@@ -71,8 +71,8 @@ ostream& operator<<(ostream& os, const Combo& c) {
 
 
 /***Catalogs***/
-Catalog::Catalog(int size){
-	vector<Match> comboVec(size);
+Catalog::Catalog(){
+	vector<Combo> catalogVec;
 }
 
 int Catalog::size(){

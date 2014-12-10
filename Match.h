@@ -24,7 +24,7 @@ public:
 
 /***Combinations of Matches***/
 class Combo {
-protected:
+public: //change to protected when you fix the thing
 	vector<Match> comboVec;
 public:
 	Combo();
@@ -38,10 +38,10 @@ public:
 
 /***Combinations of Combinations of Matches***/
 class Catalog {
-protected:
+public: //change to protected when you fix the thing
 	vector<Combo> catalogVec;
 public:
-	Catalog(int size);
+	Catalog();
 	int size();
 	void add(Combo newCombo);
 	void print();

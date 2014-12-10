@@ -99,7 +99,23 @@ int main(int argc, const char* argv[]) {
 	//print summary of matches
 	allMatches.print();
 
-	cout << allMatches.size() << pow(2,allMatches.size());
-	// cout << allMatches.size() << Catalog(pow(2,allMatches.size()).size();
+	//Create catalog
+	Catalog catalog;
+	//Fill with appropriate number of empty combos
+	//Make this part of constructor later
+	for (unsigned int i = 0; i < pow(2,allMatches.size()); i++) {
+		Combo combo;
+		catalog.add(combo);
+	}
+
+	for (unsigned int i = 0; i < allMatches.size(); i++) {
+		for (unsigned int j = 0; j < pow(2,i); j++) {
+			for (unsigned int k = 0; k < pow(2,allMatches.size()-i-1); k++) {
+				catalog.catalogVec.at(j*pow(2,allMatches.size()-i)+k).add(allMatches.comboVec.at(i)); //fix this so catalog and combo can have protected
+			}
+		}
+	}	
+
+	catalog.print();
 	return 0;
 }
