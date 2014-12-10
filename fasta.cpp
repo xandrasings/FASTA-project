@@ -121,13 +121,13 @@ int main(int argc, const char* argv[]) {
 
   string str1 = input.at("string1");
   string str2 = input.at("string2");
-  int num = stoi(input.at("number"));
+  int alignmentCount = stoi(input.at("number"));
 
-  cout << "Processed args: " << str1 << ' ' << str2 << ' ' << num << endl;
+  cout << "Processed args: " << str1 << ' ' << str2 << ' ' << alignmentCount << endl;
 
   // create necessary matrices
-  int width = str1.size() - num + 1;
-  int height = str2.size() - num + 1;
+  int width = str1.size() - alignmentCount + 1;
+  int height = str2.size() - alignmentCount + 1;
   vector< vector<bool> > boolMatrix(height, vector<bool>(width));
   vector< vector<int> > valMatrix(height, vector<int>(width));
   vector< vector<char> > ntideMatrix(str2.size(), vector<char>(str1.size()));
@@ -137,7 +137,7 @@ int main(int argc, const char* argv[]) {
   for (int i = 0; i < height; i++) {
     for (int j = 0; j < width; j++) {
       bool check = true;
-      for (int k = 0; k < num; k++) {
+      for (int k = 0; k < alignmentCount; k++) {
         if (str1[j+k] != str2[i+k]) {
           check = false;
         }
@@ -146,7 +146,7 @@ int main(int argc, const char* argv[]) {
         boolMatrix[i][j] = true;
         valMatrix[i][j] = j-i;
         allMatches.add(Match((j-i),j,i));
-        for (int k = 0; k < num; k++) {
+        for (int k = 0; k < alignmentCount; k++) {
           ntideMatrix[i+k][j+k] = str1[j+k];
         }
       }
