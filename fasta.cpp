@@ -121,8 +121,8 @@ int main(int argc, const char* argv[]) {
 		}
 	}	
 
-	catalog.calcScores();
-	catalog.printWithScores();
+	catalog.calcScores(str1.size(), str2.size());
+	//catalog.printWithScores();
 	//use this to print all combos in the catalog!
 	return 0;
 }

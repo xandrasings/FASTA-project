@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 #include "Match.h"
 using namespace std;
 
@@ -63,8 +64,20 @@ void Combo::setScore(float newScore){
 	score = newScore;
 }
 
-void Combo::calcScore() {
-	setScore(4.9);
+void Combo::calcScore(int str1Size, int str2Size) {
+	float matches = (float)(size()); //number of matches (pos)
+	float stringSize = (float)(str1Size+str2Size); //size of both strings 
+	float sum = 0; //unimportant
+	for (unsigned int i = 0; i < size(); i++) {
+		sum = sum + (float)(comboVec.at(i).getMatchVal());
+	}
+	float mean = sum / matches; //average match value
+	float error = 0; //aggregate error from mean
+	for (unsigned int i = 0; i < size(); i++) {
+		error = error + std::abs((float)(comboVec.at(i).getMatchVal())-mean);
+	}
+
+	setScore(matches - 3 * error / (stringSize));
 }
 
 void Combo::add(Match newMatch) {
@@ -97,9 +110,9 @@ int Catalog::size(){
 	return catalogVec.size();
 }
 
-void Catalog::calcScores() {
+void Catalog::calcScores(int str1Size, int str2Size) {
 	for(unsigned int i = 0; i < size(); i++) {
-		catalogVec.at(i).calcScore();
+		catalogVec.at(i).calcScore(str1Size, str2Size);
 	}
 }
 

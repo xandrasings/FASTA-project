@@ -32,7 +32,7 @@ public:
 	int size();
 	float getScore();
 	void setScore(float newScore);
-	void calcScore();
+	void calcScore(int str1Size, int str2Size);
 	void add(Match newMatch);
 	void print();
 	void printWithScore();
@@ -48,7 +48,7 @@ public: //change to protected when you fix the thing
 public:
 	Catalog();
 	int size();
-	void calcScores();
+	void calcScores(int str1Size, int str2Size);
 	void add(Combo newCombo);
 	void print();
 	void printWithScores();
