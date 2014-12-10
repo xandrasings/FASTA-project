@@ -188,7 +188,7 @@ int main(int argc, const char* argv[]) {
 			else {
 				cout << " ";
 			}
-			cout  << "|";
+			cout << "|";
 		}
 		cout << endl;
 	}
