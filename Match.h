@@ -1,6 +1,6 @@
 #ifndef _MATCH_
-#include <vector>
 #define _MATCH_
+#include <vector>
 using namespace std;
 
 /***Matches***/
