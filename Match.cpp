@@ -66,7 +66,7 @@ void Combo::setScore(float newScore){
 
 void Combo::calcScore(int str1Size, int str2Size) {
 	float matches = (float)(size()); //number of matches (pos)
-	float stringSize = (float)(str1Size+str2Size); //size of both strings 
+	float stringSize = (float)(str1Size + str2Size); //size of both strings
 	float sum = 0; //unimportant
 	for (Match match : comboVec) {
 		sum += (float)(match.getMatchVal());
