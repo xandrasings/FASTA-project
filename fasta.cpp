@@ -96,7 +96,7 @@ int main(int argc, const char* argv[]) {
 		cout << endl;
 	}
 	cout << endl;
-	
+
 	//print summary of matches
 	cout << "All Matches:" << endl;
 	allMatches.print();
@@ -118,7 +118,7 @@ int main(int argc, const char* argv[]) {
 			for (size_t k = 0; k < pow(2,allMatches.size() - i - 1); k++) {
 			}
 		}
-	}	
+	}
 
 	catalog.calcScores(str1.size(), str2.size());
 	//catalog.printWithScores();
