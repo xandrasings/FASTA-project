@@ -9,10 +9,10 @@ clean:
 	rm *.o $(BINARY)
 
 run: fasta
-	$(BINARY) -q < test/testcase_1.txt
+	$(BINARY) -f test/testcase_1.txt
 
 test: fasta
-	$(BINARY) -q < test/testcase_1.txt | diff test/expected_output_1.txt -
+	$(BINARY) -f test/testcase_1.txt | diff test/expected_output_1.txt -
 
 fasta: fasta.o
 	g++ $(GCC_ARGS) fasta.o Match.o -o $(BINARY)
