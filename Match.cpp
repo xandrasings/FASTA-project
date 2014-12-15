@@ -89,7 +89,7 @@ void Combo::print() {
 }
 
 void Combo::printWithScore() {
-	print();
+	cout << *this << endl;
 	cout << score << endl;
 }
 
