@@ -116,6 +116,7 @@ int main(int argc, const char* argv[]) {
 	for (size_t i = 0; i < allMatches.size(); i++) {
 		for (size_t j = 0; j < pow(2, i); j++) {
 			for (size_t k = 0; k < pow(2,allMatches.size() - i - 1); k++) {
+				catalog.at(j * pow(2,allMatches.size() - i) + k).add(allMatches.at(i)); //fix this so catalog and combo can have protected
 			}
 		}
 	}

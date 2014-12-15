@@ -34,6 +34,7 @@ public:
 	void setScore(float newScore);
 	void calcScore(int str1Size, int str2Size);
 	void add(Match newMatch);
+	Match at(size_t index);
 	void print();
 	void printWithScore();
 
@@ -50,6 +51,7 @@ public:
 	int size();
 	void calcScores(int str1Size, int str2Size);
 	void add(Combo newCombo);
+	Combo at(size_t index);
 	void print();
 	void printWithScores();
 

@@ -84,6 +84,10 @@ void Combo::add(Match newMatch) {
 	comboVec.push_back(newMatch);
 }
 
+Match Combo::at(size_t index) {
+	return comboVec.at(index);
+}
+
 void Combo::print() {
 	cout << *this;
 }
@@ -118,6 +122,10 @@ void Catalog::calcScores(int str1Size, int str2Size) {
 
 void Catalog::add(Combo newCombo){
 	catalogVec.push_back(newCombo);
+}
+
+Combo Catalog::at(size_t index) {
+	return catalogVec.at(index);
 }
 
 void Catalog::print(){
