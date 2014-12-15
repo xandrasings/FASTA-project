@@ -76,8 +76,8 @@ int main(int argc, const char* argv[]) {
 	// string comparison
 	// string 1 across top
 	cout << "    ";
-	for (unsigned int x = 0; x < str1.size(); x++) {
-		cout << str1[x] << " ";
+	for (char ch : str1) {
+		cout << ch << " ";
 	}
 	cout << endl;
 

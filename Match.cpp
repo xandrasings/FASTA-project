@@ -68,13 +68,13 @@ void Combo::calcScore(int str1Size, int str2Size) {
 	float matches = (float)(size()); //number of matches (pos)
 	float stringSize = (float)(str1Size+str2Size); //size of both strings 
 	float sum = 0; //unimportant
-	for (unsigned int i = 0; i < size(); i++) {
-		sum = sum + (float)(comboVec.at(i).getMatchVal());
+	for (Match match : comboVec) {
+		sum += (float)(match.getMatchVal());
 	}
 	float mean = sum / matches; //average match value
 	float error = 0; //aggregate error from mean
-	for (unsigned int i = 0; i < size(); i++) {
-		error = error + std::abs((float)(comboVec.at(i).getMatchVal())-mean);
+	for (Match match : comboVec) {
+		error += std::abs((float)(match.getMatchVal()) - mean);
 	}
 
 	setScore(matches - 3 * error / (stringSize));
@@ -94,7 +94,7 @@ void Combo::printWithScore() {
 }
 
 ostream& operator<<(ostream& os, const Combo& c) {
-	for (auto match : c.comboVec) {
+	for (Match match : c.comboVec) {
 		os << match << endl;
 	}
 	return os;
@@ -111,8 +111,8 @@ int Catalog::size(){
 }
 
 void Catalog::calcScores(int str1Size, int str2Size) {
-	for(unsigned int i = 0; i < size(); i++) {
-		catalogVec.at(i).calcScore(str1Size, str2Size);
+	for (Combo combo : catalogVec) {
+		combo.calcScore(str1Size, str2Size);
 	}
 }
 
@@ -125,17 +125,18 @@ void Catalog::print(){
 }
 
 void Catalog::printWithScores() {
-	for(unsigned int i = 0; i < size(); i++) {
-		cout << "COMBO " << i << " with SCORE " << catalogVec.at(i).score << endl;
-		catalogVec.at(i).print();
+	size_t i = 0;
+	for (Combo combo : catalogVec) {
+		cout << "COMBO " << i++ << " with SCORE " << combo.score << endl;
+		cout << combo << endl;
 	}
 }
 
 ostream& operator<<(ostream& os, const Catalog& c) {
-	unsigned int i = 0;
-	for (auto match : c.catalogVec) {
+	size_t i = 0;
+	for (Combo combo : c.catalogVec) {
 		os << "COMBO " << i++ << endl;
-		os << match << endl;
+		os << combo << endl;
 	}
 	return os;
 }
