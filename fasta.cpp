@@ -82,9 +82,9 @@ int main(int argc, const char* argv[]) {
 	cout << endl;
 
 	// everything else
-	for (unsigned int i = 0; i < str2.size(); i++) {
+	for (size_t i = 0; i < str2.size(); i++) {
 		cout << " " << str2[i] << " |";
-		for (unsigned int j = 0; j < str1.size(); j++) {
+		for (size_t j = 0; j < str1.size(); j++) {
 			if (ntideMatrix[i][j]) {
 				cout << ntideMatrix[i][j];
 			}
@@ -107,16 +107,15 @@ int main(int argc, const char* argv[]) {
 	Catalog catalog;
 	//Fill with appropriate number of empty combos
 	//Make this part of constructor later
-	for (unsigned int i = 0; i < pow(2,allMatches.size()); i++) {
+	for (size_t i = 0; i < pow(2, allMatches.size()); i++) {
 		Combo combo;
 		catalog.add(combo);
 	}
 
 	//Fill in empty combos with all possibilities.
-	for (unsigned int i = 0; i < allMatches.size(); i++) {
-		for (unsigned int j = 0; j < pow(2,i); j++) {
-			for (unsigned int k = 0; k < pow(2,allMatches.size()-i-1); k++) {
-				catalog.catalogVec.at(j*pow(2,allMatches.size()-i)+k).add(allMatches.comboVec.at(i)); //fix this so catalog and combo can have protected
+	for (size_t i = 0; i < allMatches.size(); i++) {
+		for (size_t j = 0; j < pow(2, i); j++) {
+			for (size_t k = 0; k < pow(2,allMatches.size() - i - 1); k++) {
 			}
 		}
 	}	
