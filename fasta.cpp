@@ -57,7 +57,7 @@ int main(int argc, const char* argv[]) {
 		}
 	}
 	cout << endl;
- 
+
 	// print out matrices
 	// match ratings
 	cout << "VALUE MATRIX:" <<  endl;
@@ -174,6 +174,58 @@ int main(int argc, const char* argv[]) {
 	catalog.calcScores(wonklessness);
 	catalog.sort();
 	catalog.printWithScores();
+
+	//catalog.printWithScores();
+
+	/*
+		kjashdfkah
+		00012345678
+		--BILLGATES
+		    |||: |:
+		ATBALLGAMES
+		01234567890
+		 5 (5,0)
+		-2 (2,4)
+		-2 (3,5)
+		-2 (4,6)
+		-2 (7,9)
+	*/
+
+	// string top_string = str1;
+	// string bottom_string = str2;
+	// size_t longest_string_size = max(top_string.size(), bottom_string.size());
+	// size_t shortest_string_size = min(top_string.size(), bottom_string.size());
+	// int size_diff = longest_string_size - shortest_string_size;
+
+	// cout << "Pretty Matches" << endl;
+	// top_string.insert(top_string.begin(), longest_string_size - top_string.size(), '-');
+	// bottom_string.insert(bottom_string.begin(), longest_string_size - bottom_string.size(), '-');
+	// cout << top_string << endl;
+
+	// vector<string> matchLines;
+	// // = { ,  ,  ,  , |, |, |, :,  , |, :}
+	// for (size_t i = 0; i < bottom_string.size(); i++) {
+	// 	string ch = " ";
+	// 	int num_idx = 0;
+	// 	bool iterate_num = false;
+	// 	for (size_t j = 0; j < catalog.catalogVec.size(); j++) {
+	// 		int big = max(catalog.catalogVec.at(j).getXCoor(), catalog.catalogVec.at(j).getYCoor());
+	// 		int small = min(catalog.catalogVec.at(j).getXCoor(), catalog.catalogVec.at(j).getYCoor());
+	// 		int gap = big - small;
+
+	// 		if (catalog.catalogVec.at(j).getYCoor() == i && gap <= size_diff) {
+	// 			ch = "|";
+	// 			iterate_num = true;
+	// 		}
+	// 	}
+	// 	matchLines.push_back(ch);
+	// }
+	// for (auto thing : matchLines)
+	// 	cout << thing;
+	// cout << endl;
+
+	// cout << bottom_string << endl;
+
 	//use this to print all combos in the catalog!
 	return 0;
 }
