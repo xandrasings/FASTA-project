@@ -9,7 +9,7 @@
 
 map<string, string> parse_arguments(int argc, const char* argv[]) {
 	// cout << "parse_arguments" << endl;
-	string help_message = "I'm a helpful help message.";
+	string help_message = "I'm a helpful help message.\n";
 	if (argc < 2) {
 		cout << help_message;
 		exit(0);
