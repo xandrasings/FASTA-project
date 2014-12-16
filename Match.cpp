@@ -164,6 +164,15 @@ void Catalog::printWithScores() {
 	}
 }
 
+void Catalog::finalPrint(string str1, int num, int results) {
+	for (unsigned int i = 0; i < min(size(), results); i++) {
+	//for (Combo combo : catalogVec) {
+		cout << "COMBO " << i+1 << " with score of " << catalogVec[i].score << ":" << endl;
+		catalogVec[i].printWithSequence(str1, num);
+		cout << endl;
+	}
+}
+
 ostream& operator<<(ostream& os, const Catalog& c) {
 	size_t i = 0;
 	for (Combo combo : c.catalogVec) {
