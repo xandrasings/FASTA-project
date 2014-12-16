@@ -29,12 +29,14 @@ map<string, string> parse_arguments(int argc, const char* argv[]) {
 	possible_flags["-f"] = "input_file";
 	possible_flags["-o"] = "output_file";
 	possible_flags["-h"] = "show_help";
+	possible_flags["-w"] = "wonklessness";
 	possible_flags["--number"] = "number";
 	possible_flags["--string1"] = "string1";
 	possible_flags["--string2"] = "string2";
 	possible_flags["--file"] = "input_file";
 	possible_flags["--output"] = "output_file";
 	possible_flags["--help"] = "show_help";
+	possible_flags["--wonklessness"] = "wonklessness";
 
 	if ((argc) % 2 == 0) {
 		// we have an even number of arguments.
@@ -59,6 +61,9 @@ map<string, string> parse_arguments(int argc, const char* argv[]) {
 			mapper.insert(make_pair(possible_flags.at(args.at(i)), args.at(i+1)));
 		}
 	}
+
+	if (!mapper.count("wonklessness"))
+		mapper.insert(make_pair(possible_flags.at("-w"), 0.15));
 
 	// cout << endl;
 	// for (auto v : mapper)
