@@ -29,7 +29,6 @@ int main(int argc, const char* argv[]) {
 	float wonklessness = stof(input.at("wonklessness"));
 	int result_count = stoi(input.at("result_count"));
 
-
 	cout << "Processed args: " << str1 << ' ' << str2 << ' ' << num << endl;
 
 	// create necessary matrices
@@ -145,10 +144,8 @@ int main(int argc, const char* argv[]) {
 			}
 		}
 	}
-	cout << "before" << endl;
 	vector<Combo> cleanedUp;
 	for (Combo c : catalog.catalogVec){
-		cout << "in for" << endl;
 		if (!c.getBadCombo()){
 			cleanedUp.push_back(c);
 		}
@@ -156,10 +153,8 @@ int main(int argc, const char* argv[]) {
 
 	catalog.catalogVec.clear();
 	for (Combo c : cleanedUp) {
-		cout << "In 2 " << endl;
 		catalog.catalogVec.push_back(c);
 	}
-	cout << "after" << endl;
 
 	//Order remaining combos of matches by match x-coordinate
 	for (unsigned int i = 0; i < catalog.size(); i++) {
@@ -195,14 +190,12 @@ int main(int argc, const char* argv[]) {
 
 	catalog.calcScores(wonklessness);
 	cout << "calscores" << endl;
-	//catalog.sort();
-		cout << "catalog sort" << endl;
+	catalog.sort();
+	cout << "catalog sort" << endl;
 	catalog.printWithScores();
-		cout << "print scores" << endl;
-	//catalog.printWithScores();
-	catalog.finalPrint(str1, num, result_count);
+	cout << "print scores" << endl;
+	catalog.finalPrint(str1, str2, num, result_count);
 
-	//catalog.printWithScores();
 
 	/*
 		kjashdfkah

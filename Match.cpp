@@ -49,7 +49,7 @@ void Match::print(){
 }
 
 void Match::halfPrint(){
-	cout << matchVal << "(" << xCoor << "," << yCoor << ") ";
+	cout << matchVal << " (" << xCoor << "," << yCoor << ") ";
 }
 
 ostream& operator<<(ostream& os, const Match& m) {
@@ -112,7 +112,6 @@ void Combo::printWithScore() {
 	cout << score << endl;
 }
 
-
 void Combo::printWithSequence(string str1, int num) {
 	for(unsigned int i = 0; i < size(); i++) {
 		comboVec.at(i).halfPrint();
@@ -121,6 +120,44 @@ void Combo::printWithSequence(string str1, int num) {
 		}
 	cout << endl;
 	}
+}
+
+void Combo::printAlignment(string str1, string str2, int num) {
+
+	/*
+	string finalStr1 = "";
+	string finalStr2 = "";
+	//int startIndels = comboVec[0].getXCoor()-comboVec[0].getYCoor();
+
+	add(Match(str2.size()-str1.size(),str1.size(),str2.size()));
+	add(Match(0,-1,-1));
+	sort();
+
+	for (unsigned int i = 0; i < size() - 1; i++) {
+		int X1 = comboVec[i].getXCoor();
+		int X2 = comboVec[i+1].getXCoor();
+		int Y1 = comboVec[i].getYCoor();
+		int Y2 = comboVec[i+1].getYCoor();
+
+		int indelQuant = (X2 - X1) - (Y2 - Y1);
+
+		if (indelQuant < 0) {
+			for (unsigned int i = 0; i < -1 * indelQuant; i++) {
+				finalStr1 = finalStr1 + "_";
+			}
+		}
+		else if (indelQuant > 0) {
+			for (unsigned int i = 0; i < indelQuant; i++) {
+				finalStr2 = finalStr2 + "_";
+			}
+		}
+
+		finalStr1 = finalStr1 + str1.substr(X1 + 1, X2 - X1);
+		finalStr2 = finalStr2 + str2.substr(Y1 + 1, Y2 - Y1);
+	}
+
+	cout << finalStr1 << endl << endl << finalStr2 << endl;
+	*/
 }
 
 void Combo::sort() {
@@ -140,10 +177,11 @@ Combo& Combo::operator=(const Combo& c){
 	if (comboVec.size() > c.comboVec.size()){
 		comboVec.resize(c.comboVec.size());
 	}
-	for (int i = 0; i < c.comboVec.size(); i++){
-		while (i < comboVec.size()-1){
-			comboVec[i]=c.comboVec[i];
-		}
+	int i;
+	for (i = 0; i < comboVec.size() - 1; i++) {
+		comboVec[i]=c.comboVec[i];
+	}
+	for (; i < c.comboVec.size(); i++) {
 		comboVec.push_back(c.comboVec[i]);
 	}
 	return *this;
@@ -179,7 +217,7 @@ void Catalog::erase(int i) {
 }
 
 void Catalog::sort() {
-	::sort(catalogVec.begin(), catalogVec.end(), greater<Combo>());
+	::sort(catalogVec.begin(), catalogVec.end(), less<Combo>());
 }
 
 Combo Catalog::at(size_t index) {
@@ -198,11 +236,13 @@ void Catalog::printWithScores() {
 	}
 }
 
-void Catalog::finalPrint(string str1, int num, int results) {
+void Catalog::finalPrint(string str1, string str2, int num, int results) {
 	for (unsigned int i = 0; i < min(size(), results); i++) {
 	//for (Combo combo : catalogVec) {
 		cout << "COMBO " << i+1 << " with score of " << catalogVec[i].score << ":" << endl;
 		catalogVec[i].printWithSequence(str1, num);
+		cout << endl;
+		catalogVec[i].printAlignment(str1, str2, num);
 		cout << endl;
 	}
 }
