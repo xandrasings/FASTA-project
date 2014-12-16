@@ -123,8 +123,6 @@ void Combo::printWithSequence(string str1, int num) {
 }
 
 void Combo::printAlignment(string str1, string str2, int num) {
-
-	/*
 	string finalStr1 = "";
 	string finalStr2 = "";
 	//int startIndels = comboVec[0].getXCoor()-comboVec[0].getYCoor();
@@ -156,8 +154,7 @@ void Combo::printAlignment(string str1, string str2, int num) {
 		finalStr2 = finalStr2 + str2.substr(Y1 + 1, Y2 - Y1);
 	}
 
-	cout << finalStr1 << endl << endl << finalStr2 << endl;
-	*/
+	cout << finalStr1 << endl << finalStr2 << endl;
 }
 
 void Combo::sort() {
@@ -236,13 +233,13 @@ void Catalog::sort() {
 				newRef = j;
 				break;
 			}
-			
-			
+
+
 		}
-		
+
 		//cout << newRef << endl;
 		catalogVec.pop_back();
-		
+
 	}
 }
 */
