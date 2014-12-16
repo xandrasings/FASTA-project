@@ -18,8 +18,9 @@ string prettify(int entry) {
 	else {return "+" + to_string(entry)+" ";}
 }
 
+
 int main(int argc, const char* argv[]) {
-	/*map<string, string> args = parse_arguments(argc, argv);
+	map<string, string> args = parse_arguments(argc, argv);
 	map<string, string> input = get_input(args);
 
 	string str1 = input.at("string1");
@@ -27,13 +28,7 @@ int main(int argc, const char* argv[]) {
 	int num = stoi(input.at("number"));
 	float wonklessness = stof(input.at("wonklessness"));
 	int result_count = stoi(input.at("result_count"));
-*/
 
-	string str1 = "atballgames";
-	string str2 = "billgates";
-	int num = 2;
-	float wonklessness = .15;
-	int result_count = 5;
 
 	cout << "Processed args: " << str1 << ' ' << str2 << ' ' << num << endl;
 
@@ -136,51 +131,74 @@ int main(int argc, const char* argv[]) {
 	//Remove non-valid combos
 
 	//Remove final empty combo
-	catalog.erase(catalog.size()-1);
+	catalog.catalogVec.pop_back();
 
 	//Find all combos that have duplicate X or Y vals
-	vector<unsigned int> dupIndices; //store them here, because we can't delete during loop
+	int removeNum = 0;
 	for (unsigned int i = 0; i < catalog.size(); i++) {
-		bool dupCheck = false;
 		for (unsigned int j = 0; j < catalog.catalogVec[i].size(); j++) {
 			for (unsigned int k = j + 1; k < catalog.catalogVec[i].size(); k++) {
 				if (catalog.catalogVec[i].comboVec[j].getXCoor() == catalog.catalogVec[i].comboVec[k].getXCoor() || catalog.catalogVec[i].comboVec[j].getYCoor() == catalog.catalogVec[i].comboVec[k].getYCoor()) {
-					dupCheck = true;
+					catalog.catalogVec[i].setBadCombo();
+					removeNum++;
 				}
 			}
 		}
-
-		if (dupCheck) {
-			dupIndices.push_back(i);
+	}
+	cout << "before" << endl;
+	vector<Combo> cleanedUp;
+	for (Combo c : catalog.catalogVec){
+		cout << "in for" << endl;
+		if (!c.getBadCombo()){
+			cleanedUp.push_back(c);
 		}
 	}
 
-	if(dupIndices.size() > 0){
-	for (unsigned int i = dupIndices.size()-1; i >= 0; i--) {
-		cout << i << endl;
-		catalog.erase(dupIndices.at(i));
-		}
+	catalog.catalogVec.clear();
+	for (Combo c : cleanedUp) {
+		cout << "In 2 " << endl;
+		catalog.catalogVec.push_back(c);
 	}
+	cout << "after" << endl;
 
 	//Order remaining combos of matches by match x-coordinate
 	for (unsigned int i = 0; i < catalog.size(); i++) {
 		catalog.catalogVec[i].sort();
 	}
 
-	/*//Remove combos that have reverse diagonals
+	//Remove combos that have reverse diagonals
+	/*vector<unsigned int> dupIndices2;
 	for (unsigned int i = 0; i < catalog.size(); i++) {
-		for (unsigned int j = 0; j < catalog.catalogVec[i].size(); j++){
-			if ()
+		bool dupCheck2 = false;
+		for (unsigned int j = 0; j < catalog.catalogVec[i].size()-1; j++){
+			if (catalog.catalogVec[i].comboVec[j].getYCoor() > catalog.catalogVec[i].comboVec[j+1].getYCoor()){
+				dupCheck2 = true; 
+			}
 		}
+		if (dupCheck2) {
+			dupIndices2.push_back(i);
+		}
+	}
 
+	cout << "dupInd" << endl;
+	for (int i = 0; i<dupIndices2.size(); i++)
+		cout << dupIndices2[i] << endl;
+
+	if(dupIndices2.size() > 0){
+	for (unsigned int i = dupIndices2.size()-1; i >= 0; i--) {
+		cout << "catsize" << catalog.size() << endl;
+		cout << "erase: " << i << ", stored: " << dupIndices2[i] << endl;
+		//catalog.erase(dupIndices2.at(i));
+		cout << "catsize2" << catalog.size() << endl;
+		}
 	}*/
 
 	catalog.calcScores(wonklessness);
-	cout << "1" << endl;
+	cout << "calscores" << endl;
 	//catalog.sort();
-		cout << "2" << endl;
+		cout << "catalog sort" << endl;
 	catalog.printWithScores();
-		cout << "3" << endl;
+		cout << "print scores" << endl;
 	//catalog.printWithScores();
 	catalog.finalPrint(str1, num, result_count);
 

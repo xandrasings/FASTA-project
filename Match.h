@@ -28,6 +28,7 @@ class Combo {
 public: //change to protected when you fix the thing
 	vector<Match> comboVec;
 	float score;
+	bool badCombo = false;
 public:
 	Combo();
 	int size();
@@ -40,6 +41,8 @@ public:
 	void printWithScore();
 	void printWithSequence(string str1, int num);
 	void sort();
+	bool getBadCombo() const;
+	void setBadCombo();
 	Combo& operator=(const Combo& c);
 
 	friend ostream& operator<<(ostream& os, const Combo& c);

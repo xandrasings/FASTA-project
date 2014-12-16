@@ -127,6 +127,14 @@ void Combo::sort() {
 	::sort(comboVec.begin(), comboVec.end(), less<Match>());
 }
 
+bool Combo::getBadCombo() const{
+	return badCombo;
+}
+
+void Combo::setBadCombo(){
+	badCombo = true;
+}
+
 Combo& Combo::operator=(const Combo& c){
 	score = c.getScore();
 	if (comboVec.size() > c.comboVec.size()){
