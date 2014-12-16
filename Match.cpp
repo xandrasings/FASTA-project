@@ -217,7 +217,7 @@ void Catalog::erase(int i) {
 }
 
 void Catalog::sort() {
-	::sort(catalogVec.begin(), catalogVec.end(), less<Combo>());
+	::sort(catalogVec.begin(), catalogVec.end(), greater<Combo>());
 }
 
 Combo Catalog::at(size_t index) {
