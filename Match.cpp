@@ -216,9 +216,36 @@ void Catalog::erase(int i) {
 	catalogVec.erase(catalogVec.begin()+i);
 }
 
+
+
 void Catalog::sort() {
 	::sort(catalogVec.begin(), catalogVec.end(), greater<Combo>());
 }
+
+
+/*
+void Catalog::sort() {
+	int max = catalogVec.size();
+	cout << catalogVec[max-1].getScore();
+	for (unsigned int i = 0; i < max; i++) {
+		cout << "Looking at #" << i << endl;
+		int newRef = 0;
+		for (unsigned int j = 0; j < i; j++) {
+			cout << j << ", " << catalogVec[j].getScore() << ". ";
+			if (catalogVec[j].getScore() > catalogVec[catalogVec.size()-1].getScore()) {
+				newRef = j;
+				break;
+			}
+			
+			
+		}
+		
+		//cout << newRef << endl;
+		catalogVec.pop_back();
+		
+	}
+}
+*/
 
 Combo Catalog::at(size_t index) {
 	return catalogVec.at(index);

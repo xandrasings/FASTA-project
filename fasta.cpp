@@ -192,7 +192,7 @@ int main(int argc, const char* argv[]) {
 
 	//Calculate scores, sort and print
 	catalog.calcScores(wonklessness);
-	//catalog.sort();
+	catalog.sort();
 
 	cout << endl << endl;
 	cout << "ALL VALID COMBINATIONS:" << endl;
