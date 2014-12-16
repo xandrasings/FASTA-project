@@ -144,57 +144,74 @@ int main(int argc, const char* argv[]) {
 			}
 		}
 	}
-	vector<Combo> cleanedUp;
-	for (Combo c : catalog.catalogVec){
-		if (!c.getBadCombo()){
-			cleanedUp.push_back(c);
-		}
+	for (int i=0; i < catalog.size(); i++){
+		if (catalog.catalogVec[i].getBadCombo() == true)
+			cout << i << " ";
 	}
+	cout << endl;
 
-	catalog.catalogVec.clear();
-	for (Combo c : cleanedUp) {
-		catalog.catalogVec.push_back(c);
+	//Add combos to stay into temp vector
+	vector<Combo> cleanedUp;
+	if (removeNum > 0){
+		for (Combo c : catalog.catalogVec){
+			if (!c.getBadCombo()){
+				cleanedUp.push_back(c);
+			}	
+		}
+
+		//Copy back into catalog vector
+		catalog.catalogVec.clear();
+		for (Combo c : cleanedUp) {
+			catalog.add(c);
+		}
+
+		//Clean temp vector for re-use
+		cleanedUp.clear();
 	}
 
 	//Order remaining combos of matches by match x-coordinate
 	for (unsigned int i = 0; i < catalog.size(); i++) {
 		catalog.catalogVec[i].sort();
+		cout << "sorting" << i << ".... ";
 	}
+	cout << endl;
 
 	//Remove combos that have reverse diagonals
-	/*vector<unsigned int> dupIndices2;
+	int removeNum2 = 0;
 	for (unsigned int i = 0; i < catalog.size(); i++) {
-		bool dupCheck2 = false;
 		for (unsigned int j = 0; j < catalog.catalogVec[i].size()-1; j++){
 			if (catalog.catalogVec[i].comboVec[j].getYCoor() > catalog.catalogVec[i].comboVec[j+1].getYCoor()){
-				dupCheck2 = true; 
+				catalog.catalogVec[i].setBadCombo();
+				removeNum2++;
 			}
-		}
-		if (dupCheck2) {
-			dupIndices2.push_back(i);
 		}
 	}
 
-	cout << "dupInd" << endl;
-	for (int i = 0; i<dupIndices2.size(); i++)
-		cout << dupIndices2[i] << endl;
-
-	if(dupIndices2.size() > 0){
-	for (unsigned int i = dupIndices2.size()-1; i >= 0; i--) {
-		cout << "catsize" << catalog.size() << endl;
-		cout << "erase: " << i << ", stored: " << dupIndices2[i] << endl;
-		//catalog.erase(dupIndices2.at(i));
-		cout << "catsize2" << catalog.size() << endl;
+	if (removeNum2 > 0) {
+		//Add combos to stay into temp vector
+		for (Combo c : catalog.catalogVec){
+			if (!c.getBadCombo()){
+				cleanedUp.push_back(c);
+			}
 		}
-	}*/
 
+		//Copy back into catalog vector
+		catalog.catalogVec.clear();
+		for (Combo c : cleanedUp) {
+			catalog.add(c);
+		}
+	}
+	cout << "catalog size" << catalog.size() << endl;
+
+	//Calculate scores, sort and print
 	catalog.calcScores(wonklessness);
 	cout << "calscores" << endl;
-	catalog.sort();
+	//catalog.sort();
 	cout << "catalog sort" << endl;
 	catalog.printWithScores();
 	cout << "print scores" << endl;
 	catalog.finalPrint(str1, str2, num, result_count);
+	cout << "printed" << endl;
 
 
 	/*
