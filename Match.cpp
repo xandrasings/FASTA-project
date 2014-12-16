@@ -169,10 +169,11 @@ Combo& Combo::operator=(const Combo& c){
 	if (comboVec.size() > c.comboVec.size()){
 		comboVec.resize(c.comboVec.size());
 	}
-	for (int i = 0; i < c.comboVec.size(); i++){
-		while (i < comboVec.size()-1){
-			comboVec[i]=c.comboVec[i];
-		}
+	int i;
+	for (i = 0; i < comboVec.size() - 1; i++) {
+		comboVec[i]=c.comboVec[i];
+	}
+	for (; i < c.comboVec.size(); i++) {
 		comboVec.push_back(c.comboVec[i]);
 	}
 	return *this;
@@ -208,7 +209,7 @@ void Catalog::erase(int i) {
 }
 
 void Catalog::sort() {
-	::sort(catalogVec.begin(), catalogVec.end(), greater<Combo>());
+	::sort(catalogVec.begin(), catalogVec.end(), less<Combo>());
 }
 
 Combo Catalog::at(size_t index) {
