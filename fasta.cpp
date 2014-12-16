@@ -194,10 +194,14 @@ int main(int argc, const char* argv[]) {
 	catalog.calcScores(wonklessness);
 	//catalog.sort();
 
-	cout << '\n' << '\n' << "ALL VALID COMBINATIONS:" << '\n' << "____________________________________________________" << endl;
+	cout << endl << endl;
+	cout << "ALL VALID COMBINATIONS:" << endl;
+	cout << "-------------------------" << endl;
 	catalog.printWithScores();
 
-	cout << '\n' << '\n' << "TOP 5 ALIGNMENTS:" <<'\n' << "____________________________________________________" << endl;
+	cout << endl << endl;
+	cout << "TOP 5 ALIGNMENTS:" << endl;
+	cout << "-------------------" << endl;
 	catalog.finalPrint(str1, str2, num, result_count);
 
 	return 0;
