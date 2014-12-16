@@ -144,11 +144,6 @@ int main(int argc, const char* argv[]) {
 			}
 		}
 	}
-	for (int i=0; i < catalog.size(); i++){
-		if (catalog.catalogVec[i].getBadCombo() == true)
-			cout << i << " ";
-	}
-	cout << endl;
 
 	//Add combos to stay into temp vector
 	vector<Combo> cleanedUp;
@@ -168,13 +163,6 @@ int main(int argc, const char* argv[]) {
 		//Clean temp vector for re-use
 		cleanedUp.clear();
 	}
-
-	//Order remaining combos of matches by match x-coordinate
-	for (unsigned int i = 0; i < catalog.size(); i++) {
-		catalog.catalogVec[i].sort();
-		cout << "sorting" << i << ".... ";
-	}
-	cout << endl;
 
 	//Remove combos that have reverse diagonals
 	int removeNum2 = 0;
@@ -204,13 +192,13 @@ int main(int argc, const char* argv[]) {
 
 	//Calculate scores, sort and print
 	catalog.calcScores(wonklessness);
-	cout << "calscores" << endl;
 	//catalog.sort();
-	cout << "catalog sort" << endl;
+
+	cout << '\n' << '\n' << "ALL VALID COMBINATIONS:" << '\n' << "____________________________________________________" << endl;
 	catalog.printWithScores();
-	cout << "print scores" << endl;
+
+	cout << '\n' << '\n' << "TOP 5 ALIGNMENTS:" <<'\n' << "____________________________________________________" << endl;
 	catalog.finalPrint(str1, str2, num, result_count);
-	cout << "printed" << endl;
 
 	return 0;
 }
