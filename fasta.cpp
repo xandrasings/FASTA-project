@@ -144,7 +144,6 @@ int main(int argc, const char* argv[]) {
 
 	catalog.calcScores();
 	catalog.printWithScores();
-	
 	//use this to print all combos in the catalog!
 	return 0;
 }
