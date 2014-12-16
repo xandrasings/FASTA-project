@@ -2,6 +2,7 @@
 #include <vector>
 #include <cmath>
 #include "Match.h"
+#include <algorithm>
 using namespace std;
 
 /***Matches***/
@@ -53,11 +54,18 @@ ostream& operator<<(ostream& os, const Match& m) {
 /***Combinations***/
 Combo::Combo() {}
 
+bool operator==(const Combo& lhs, const Combo& rhs) { return lhs.getScore() == rhs.getScore(); }
+bool operator!=(const Combo& lhs, const Combo& rhs) { return !operator==(lhs, rhs); }
+bool operator< (const Combo& lhs, const Combo& rhs) { return lhs.getScore() < rhs.getScore(); }
+bool operator> (const Combo& lhs, const Combo& rhs) { return operator< (rhs, lhs); }
+bool operator<=(const Combo& lhs, const Combo& rhs) { return !operator> (lhs, rhs); }
+bool operator>=(const Combo& lhs, const Combo& rhs) { return !operator< (lhs, rhs); }
+
 int Combo::size(){
 	return comboVec.size();
 }
 
-float Combo::getScore() {
+float Combo::getScore() const {
 	return score;
 }
 
@@ -134,6 +142,10 @@ void Catalog::add(Combo newCombo) {
 
 void Catalog::erase(int i) {
 	catalogVec.erase(catalogVec.begin()+i);
+}
+
+void Catalog::sort() {
+	::sort(catalogVec.begin(), catalogVec.end(), greater<Combo>());
 }
 
 Combo Catalog::at(size_t index) {

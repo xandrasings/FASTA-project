@@ -31,7 +31,7 @@ public: //change to protected when you fix the thing
 public:
 	Combo();
 	int size();
-	float getScore();
+	float getScore() const;
 	void setScore(float newScore);
 	void calcScore(float multiplier);
 	void add(Match newMatch);
@@ -54,6 +54,7 @@ public:
 	void calcScores(float multiplier = .15);
 	void add(Combo newCombo);
 	void erase(int i);
+	void sort();
 	Combo at(size_t index);
 	void print();
 	void printWithScores();
