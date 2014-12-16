@@ -121,6 +121,30 @@ int main(int argc, const char* argv[]) {
 		}
 	}
 
+
+	//Find all combos that have duplicate X or Y vals
+	vector<unsigned int> dupIndices; //store them here, because we can't delete during loop
+	for (unsigned int i = 0; i < catalog.size(); i++) {
+		bool dupCheck = false;
+		for (unsigned int j = 0; j < catalog.catalogVec[i].size(); j++) {
+			for (unsigned int k = j + 1; k < catalog.catalogVec[i].size(); k++) {
+				if (catalog.catalogVec[i].comboVec[j].getXCoor() == catalog.catalogVec[i].comboVec[k].getXCoor() || catalog.catalogVec[i].comboVec[j].getYCoor() == catalog.catalogVec[i].comboVec[k].getYCoor()) {
+					dupCheck = true;
+				}
+				//cout << i << ", " << j << ", " << k << ", " << dupCheck << endl;
+			}
+		}
+		if (dupCheck) {
+			dupIndices.push_back(i);
+		}
+	}
+
+	for (unsigned int i = 0; i < dupIndices.size(); i++) {
+		cout << dupIndices[i] << ", ";
+	}
+
+/*
+
 	//Remove non-valid alignments
 
 	//Remove combos that have indels
@@ -141,10 +165,9 @@ int main(int argc, const char* argv[]) {
 	for (unsigned int i = 0; i < catalog.size(); i++) {
 
 	}
+*/
 
 	catalog.calcScores();
-	catalog.printWithScores();
-	
-	//use this to print all combos in the catalog!
+	catalog.printWithScores(); //use this to print all combos in the catalog!
 	return 0;
 }
