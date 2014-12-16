@@ -10,7 +10,7 @@ Professor Allen's Assignment:
 > 4. [x] Step by step description of the organization of your project from design to final product (code).
 > 5. [ ] Specs for each step in 4.
 > 6. [x] The division of labor among the project team members.
-> 7. [ ] Any special coding features you use/develop.
+> 7. [x] Any special coding features you use/develop.
 > 8. [ ] A graphic of your code organization.
 > 9. [x] Testing results.
 > 10. [x] Code.
