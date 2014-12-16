@@ -11,6 +11,9 @@ clean:
 run: fasta
 	$(BINARY) -f test/testcase_1.txt
 
+wonk: fasta
+	$(BINARY) -f test/testcase_1.txt -w 0.5
+
 test: fasta
 	$(BINARY) -f test/testcase_1.txt | diff test/expected_output_1.txt -
 
