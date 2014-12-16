@@ -39,6 +39,7 @@ public:
 	void print();
 	void printWithScore();
 	void printWithSequence(string str1, int num);
+	void printAlignment(string str1, string str2, int num);
 	void sort();
 	Combo& operator=(const Combo& c);
 
@@ -60,7 +61,7 @@ public:
 	Combo at(size_t index);
 	void print();
 	void printWithScores();
-	void finalPrint(string str1, int num, int results);
+	void finalPrint(string str1, string str2, int num, int results);
 
 	friend ostream& operator<<(ostream& os, const Catalog& c);
 };

@@ -19,7 +19,7 @@ string prettify(int entry) {
 }
 
 int main(int argc, const char* argv[]) {
-	/*map<string, string> args = parse_arguments(argc, argv);
+	map<string, string> args = parse_arguments(argc, argv);
 	map<string, string> input = get_input(args);
 
 	string str1 = input.at("string1");
@@ -27,15 +27,6 @@ int main(int argc, const char* argv[]) {
 	int num = stoi(input.at("number"));
 	float wonklessness = stof(input.at("wonklessness"));
 	int result_count = stoi(input.at("result_count"));
-*/
-
-	string str1 = "atballgames";
-	string str2 = "billgates";
-	int num = 2;
-	float wonklessness = .15;
-	int result_count = 5;
-
-	cout << "Processed args: " << str1 << ' ' << str2 << ' ' << num << endl;
 
 	// create necessary matrices
 	int width = str1.size() - num + 1;
@@ -179,10 +170,10 @@ int main(int argc, const char* argv[]) {
 	cout << "1" << endl;
 	//catalog.sort();
 		cout << "2" << endl;
-	catalog.printWithScores();
+	//catalog.printWithScores();
 		cout << "3" << endl;
 	//catalog.printWithScores();
-	catalog.finalPrint(str1, num, result_count);
+	catalog.finalPrint(str1, str2, num, result_count);
 
 	//catalog.printWithScores();
 
