@@ -115,9 +115,14 @@ int Catalog::size(){
 }
 
 void Catalog::calcScores(int str1Size, int str2Size) {
+	for(unsigned int i = 0; i < size(); i++) {
+		catalogVec.at(i).calcScore(str1Size, str2Size);
+	}
+	/*
 	for (Combo combo : catalogVec) {
 		combo.calcScore(str1Size, str2Size);
 	}
+	*/
 }
 
 void Catalog::add(Combo newCombo){
