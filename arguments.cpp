@@ -63,7 +63,7 @@ map<string, string> parse_arguments(int argc, const char* argv[]) {
 	}
 
 	if (!mapper.count("wonklessness"))
-		mapper.insert(make_pair(possible_flags.at("-w"), 0.15));
+		mapper.insert(make_pair(possible_flags.at("-w"), "0.15"));
 
 	// cout << endl;
 	// for (auto v : mapper)

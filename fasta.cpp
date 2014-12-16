@@ -25,6 +25,7 @@ int main(int argc, const char* argv[]) {
 	string str1 = input.at("string1");
 	string str2 = input.at("string2");
 	int num = stoi(input.at("number"));
+	float wonklessness = stof(args.at("wonklessness"));
 
 	cout << "Processed args: " << str1 << ' ' << str2 << ' ' << num << endl;
 
@@ -142,7 +143,7 @@ int main(int argc, const char* argv[]) {
 
 	}
 
-	catalog.calcScores();
+	catalog.calcScores(wonklessness);
 	catalog.printWithScores();
 	//use this to print all combos in the catalog!
 	return 0;
