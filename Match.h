@@ -51,6 +51,7 @@ public:
 	int size();
 	void calcScores(int str1Size, int str2Size);
 	void add(Combo newCombo);
+	void erase(int i);
 	Combo at(size_t index);
 	void print();
 	void printWithScores();
