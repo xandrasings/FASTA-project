@@ -29,15 +29,14 @@ Abbreviation: FAST-HXV
 
 The purpose of this software is to run the Fasta Algorithm across two strings
 which are given as input, either via the command line or from a file. It has
-some settings that you can change at runtime via command-line flags, such as
-the match-tuple size and the wonklessness (technical term).
+various settings that you can change at runtime via command-line flags, such
+as the match-tuple size, the "wonklessness" (technical term), and the number
+of results returned.
 
 
 ## As a Description of the Interface
 
-FAST-HawkXaNia is a command-line tool for POSIX-compliant systems. OK, for Mac
-OS X and Linux-based systems, because we don't have any others to test on.
-But.
+FAST-HawkXaNia is a command-line tool for POSIX-compliant systems.
 
 
 ## On the Organization of our Moste Excellente Projekt

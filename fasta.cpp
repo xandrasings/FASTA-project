@@ -201,7 +201,6 @@ int main(int argc, const char* argv[]) {
 			catalog.add(c);
 		}
 	}
-	cout << "catalog size" << catalog.size() << endl;
 
 	//Calculate scores, sort and print
 	catalog.calcScores(wonklessness);
@@ -263,6 +262,5 @@ int main(int argc, const char* argv[]) {
 
 	// cout << bottom_string << endl;
 
-	//use this to print all combos in the catalog!
 	return 0;
 }
