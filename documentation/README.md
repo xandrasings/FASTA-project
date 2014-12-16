@@ -46,7 +46,14 @@ We began our project by implementing the basic FASTA algorithm to print out a do
 
 ## On the Division of Labour
 
-This was Xandra's idea, originally. Virginia joined the project first, followed quickly by Hawken. Xandra wrote the initial draft of the basic FASTA algorithm
+This was Xandra's idea, originally. Virginia joined the project first, followed quickly by Hawken.
+
+Xandra wrote the initial draft of the basic FASTA algorithm, and Virginia took on the discovery and printing of matches.
+
+Virginia also wrote loops to remove duplicates and print things nicely.
+
+Hawken wrote the argument parsing and the ability to read things from a file, as well as the initial version of sorting things by way of std::sort.
+
 
 ## On our Hidden Coding Features
 
