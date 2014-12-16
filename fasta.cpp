@@ -167,7 +167,7 @@ int main(int argc, const char* argv[]) {
 		bool dupCheck2 = false;
 		for (unsigned int j = 0; j < catalog.catalogVec[i].size()-1; j++){
 			if (catalog.catalogVec[i].comboVec[j].getYCoor() > catalog.catalogVec[i].comboVec[j+1].getYCoor()){
-				dupCheck2 = true; 
+				dupCheck2 = true;
 			}
 		}
 		if (dupCheck2) {
@@ -192,7 +192,7 @@ int main(int argc, const char* argv[]) {
 	cout << "calscores" << endl;
 	catalog.sort();
 	cout << "catalog sort" << endl;
-	catalog.printWithScores();
+	// catalog.printWithScores();
 	cout << "print scores" << endl;
 	catalog.finalPrint(str1, str2, num, result_count);
 
