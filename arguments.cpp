@@ -40,7 +40,6 @@ map<string, string> parse_arguments(int argc, const char* argv[]) {
 	possible_flags["--string1"] = "string1";
 	possible_flags["--string2"] = "string2";
 	possible_flags["--file"] = "input_file";
-	possible_flags["--output"] = "output_file";
 	possible_flags["--wonklessness"] = "wonklessness";
 	possible_flags["--result-count"] = "result_count";
 
