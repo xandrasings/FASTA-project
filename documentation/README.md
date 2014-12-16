@@ -27,16 +27,14 @@ Abbreviation: FAST-HXV
 
 ## A Moste Excellente Introductory Paragraph
 
-The purpose of this software is to run the Fasta Algorithm across two strings
-    which are given as input, either via the command line or from a file. It has
-    various settings that you can change at runtime via command-line flags, such
-    as the match-tuple size, the "wonklessness" (technical term), and the number
-    of results returned.
+The purpose of this software is to run the Fasta Algorithm across two strings which are given as input, either via the command line or from a file. It has various settings that you can change at runtime via command-line flags, such as the match-tuple size, the "wonklessness" (technical term), and the number of results returned.
 
 
 ## As a Description of the Interface
 
-FAST-HawkXaNia is a command-line tool for POSIX-compliant systems.
+FAST-HawkXaNia is a command-line tool for POSIX-compliant systems. It takes input either from the command-line or via an input file, with a format as specified in the README.
+
+It takes the input, processes it, and prints the results to STDOUT.
 
 
 ## On the Organization of our Moste Excellente Projekt
@@ -48,6 +46,7 @@ We began our project by implementing the basic FASTA algorithm to print out a do
 
 ## On the Division of Labour
 
+This was Xandra's idea, originally. Virginia joined the project first, followed quickly by Hawken. Xandra wrote the initial draft of the basic FASTA algorithm
 
 ## On our Hidden Coding Features
 
@@ -60,3 +59,5 @@ We began our project by implementing the basic FASTA algorithm to print out a do
 
 ## The Code for the Projekt
 Included elsewhere.
+
+Run "cat ./**/*.cpp ./**/*.h" in a terminal, without quotes, in the project directory.
