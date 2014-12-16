@@ -11,7 +11,14 @@ map<string, string> parse_arguments(int argc, const char* argv[]) {
 	// cout << "parse_arguments" << endl;
 	string help_message = "I'm a helpful help message.\n";
 	if (argc < 2) {
-		cout << help_message;
+		cout << "I'm a helpful help message." << endl;
+		cout << "Flags:" << endl;
+		cout << "  -n, --number:       The minimum-sized tuples to evaulate." << endl;
+		cout << "  -s1, --string1:     The first string to compare." << endl;
+		cout << "  -s2, --string2:     The second string to compare." << endl;
+		cout << "  -f, --file:         The file to read input from." << endl;
+		cout << "  -w, --wonklessness: The 'wonklessness' to render with." << endl;
+		cout << "  -c, --result-count: The number of results to output." << endl;
 		exit(0);
 	}
 
@@ -27,8 +34,6 @@ map<string, string> parse_arguments(int argc, const char* argv[]) {
 	possible_flags["-s1"] = "string1";
 	possible_flags["-s2"] = "string2";
 	possible_flags["-f"] = "input_file";
-	possible_flags["-o"] = "output_file";
-	possible_flags["-h"] = "show_help";
 	possible_flags["-w"] = "wonklessness";
 	possible_flags["-c"] = "result_count";
 	possible_flags["--number"] = "number";
@@ -36,7 +41,6 @@ map<string, string> parse_arguments(int argc, const char* argv[]) {
 	possible_flags["--string2"] = "string2";
 	possible_flags["--file"] = "input_file";
 	possible_flags["--output"] = "output_file";
-	possible_flags["--help"] = "show_help";
 	possible_flags["--wonklessness"] = "wonklessness";
 	possible_flags["--result-count"] = "result_count";
 
