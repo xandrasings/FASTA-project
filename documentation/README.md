@@ -9,7 +9,7 @@ Professor Allen's Assignment:
 > 3. [x] A detailed description of the interface for your project.
 > 4. [x] Step by step description of the organization of your project from design to final product (code).
 > 5. [ ] Specs for each step in 4.
-> 6. [ ] The division of labor among the project team members.
+> 6. [x] The division of labor among the project team members.
 > 7. [ ] Any special coding features you use/develop.
 > 8. [ ] A graphic of your code organization.
 > 9. [x] Testing results.
@@ -57,11 +57,18 @@ Hawken wrote the argument parsing and the ability to read things from a file, as
 
 ## On our Hidden Coding Features
 
+- We wrote our own function to filter the contents of a vector.
+- We thought about writing our own sort method.
+- We wrote custom argument parsing code.
+- We overrode the various comparison operators for each of our custom objects.
+
 
 ## A Singular Graphique, Representing the Organization of our Code
 
 
 ## Proof that our Moste Excellente Program shall Run
+
+See attached output examples.
 
 
 ## The Code for the Projekt
