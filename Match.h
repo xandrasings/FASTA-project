@@ -17,6 +17,7 @@ public:
 	int getXCoor();
 	int getYCoor();
 	void print();
+	void halfPrint();
 
 	friend ostream& operator<<(ostream& os, const Match& m);
 };
@@ -37,6 +38,7 @@ public:
 	Match at(size_t index);
 	void print();
 	void printWithScore();
+	void printWithSequence(string str1, int num);
 
 	friend ostream& operator<<(ostream& os, const Combo& c);
 };

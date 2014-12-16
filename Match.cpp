@@ -40,6 +40,10 @@ void Match::print(){
 	cout << *this << endl;
 }
 
+void Match::halfPrint(){
+	cout << matchVal << "(" << xCoor << "," << yCoor << ") ";
+}
+
 ostream& operator<<(ostream& os, const Match& m) {
     os << m.matchVal << " (" << m.xCoor << "," << m.yCoor << ")";
     return os;
@@ -91,6 +95,16 @@ void Combo::print() {
 void Combo::printWithScore() {
 	cout << *this << endl;
 	cout << score << endl;
+}
+
+void Combo::printWithSequence(string str1, int num) {
+	for(unsigned int i = 0; i < size(); i++) {
+		comboVec.at(i).halfPrint();
+		for(unsigned int j = 0; j < num; j++) {
+			cout << str1[comboVec.at(i).getXCoor()+j];
+		}
+	cout << endl;
+	}
 }
 
 ostream& operator<<(ostream& os, const Combo& c) {

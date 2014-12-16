@@ -22,9 +22,11 @@ Professor Allen's Assignment:
 So, in order, we have:
 
 ## Projekt Name
-FAST-HawkXaNia.
+Full name: FAST-HawkXaNia
+Abbreviation: FAST-HXV
 
 ## A Moste Excellente Introductory Paragraph
+The purpose of this software is to run the Fasta Algorithm
 
 
 ## As a Description of the Interface

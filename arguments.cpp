@@ -92,7 +92,7 @@ map<string, string> get_input(map<string, string> args) {
 	// cout << "get_input" << endl;
 	map<string, string> values;
 
-	vector<string> to_look_for = {"string1", "string2", "number"};
+	vector<string> to_look_for = {"string1", "string2", "number", "wonklessness"};
 	for (string thing : to_look_for) {
 		if (args.count(thing)) {
 			values.insert(make_pair(thing, args.at(thing)));

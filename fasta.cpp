@@ -25,7 +25,7 @@ int main(int argc, const char* argv[]) {
 	string str1 = input.at("string1");
 	string str2 = input.at("string2");
 	int num = stoi(input.at("number"));
-	float wonklessness = stof(args.at("wonklessness"));
+	float wonklessness = stof(input.at("wonklessness"));
 
 	cout << "Processed args: " << str1 << ' ' << str2 << ' ' << num << endl;
 
@@ -56,10 +56,11 @@ int main(int argc, const char* argv[]) {
 			}
 		}
 	}
-
+	cout << endl;
+ 
 	// print out matrices
 	// match ratings
-	cout << endl;
+	cout << "VALUE MATRIX:" <<  endl;
 	for (int i = 0; i < height; i++) {
 		cout << "|";
 		for (int j = 0; j < width; j++) {
@@ -74,6 +75,8 @@ int main(int argc, const char* argv[]) {
 	}
 
 	cout << endl;
+
+	cout << "MATCHED STRINGS MATRIX:" << endl;
 	// string comparison
 	// string 1 across top
 	cout << "    ";
@@ -99,8 +102,8 @@ int main(int argc, const char* argv[]) {
 	cout << endl;
 
 	//print summary of matches
-	cout << "All Matches:" << endl;
-	allMatches.print();
+	cout << "MATCH SUMMARY:" << endl;
+	allMatches.printWithSequence(str1, num);
 	cout << endl;
 
 
@@ -169,7 +172,7 @@ int main(int argc, const char* argv[]) {
 */
 
 	catalog.calcScores(wonklessness);
-	catalog.printWithScores();
+	//catalog.printWithScores();
 	//use this to print all combos in the catalog!
 	return 0;
 }
