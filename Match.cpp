@@ -47,10 +47,7 @@ ostream& operator<<(ostream& os, const Match& m) {
 
 
 /***Combinations***/
-Combo::Combo() {
-	vector<Match> comboVec;
-	float score;
-}
+Combo::Combo() {}
 
 int Combo::size(){
 	return comboVec.size();
@@ -64,9 +61,8 @@ void Combo::setScore(float newScore){
 	score = newScore;
 }
 
-void Combo::calcScore(int str1Size, int str2Size) {
+void Combo::calcScore(float multiplier) {
 	float matches = (float)(size()); //number of matches (pos)
-	float stringSize = (float)(str1Size + str2Size); //size of both strings
 	float sum = 0; //unimportant
 	for (Match match : comboVec) {
 		sum += (float)(match.getMatchVal());
@@ -77,7 +73,7 @@ void Combo::calcScore(int str1Size, int str2Size) {
 		error += std::abs((float)(match.getMatchVal()) - mean);
 	}
 
-	setScore(matches - 3 * error / (stringSize));
+	setScore(matches - multiplier * error);
 }
 
 void Combo::add(Match newMatch) {
@@ -106,17 +102,15 @@ ostream& operator<<(ostream& os, const Combo& c) {
 
 
 /***Catalogs***/
-Catalog::Catalog(){
-	vector<Combo> catalogVec;
-}
+Catalog::Catalog() {}
 
 int Catalog::size(){
 	return catalogVec.size();
 }
 
-void Catalog::calcScores(int str1Size, int str2Size) {
+void Catalog::calcScores(float multiplier) {
 	for(unsigned int i = 0; i < size(); i++) {
-		catalogVec.at(i).calcScore(str1Size, str2Size);
+		catalogVec.at(i).calcScore(multiplier);
 	}
 }
 
