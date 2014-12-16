@@ -105,6 +105,7 @@ void Combo::printWithScore() {
 	cout << score << endl;
 }
 
+
 void Combo::printWithSequence(string str1, int num) {
 	for(unsigned int i = 0; i < size(); i++) {
 		comboVec.at(i).halfPrint();
@@ -112,6 +113,19 @@ void Combo::printWithSequence(string str1, int num) {
 			cout << str1[comboVec.at(i).getXCoor()+j];
 		}
 	cout << endl;
+	}
+}
+
+Combo& Combo::operator=(const Combo& c){
+	score = c.getScore();
+	if (comboVec.size() > c.size()){
+		comboVec.erase(comboVec.begin()+c.size(), comboVec.size();
+	}
+	for (int i = 0; i < c.size(); i++){
+		while (i < comboVec.size()-1){
+			comboVec[i]=c.comboVec[i];
+		}
+		comboVec.push_back(c.comboVec[i]);
 	}
 }
 
