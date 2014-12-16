@@ -11,6 +11,9 @@ clean:
 run: fasta
 	$(BINARY) -f test/testcase_1.txt
 
+run-args: fasta
+	$(BINARY) -s1 BILLGATES -s2 BILLTOGATES -n 2
+
 wonk: fasta
 	$(BINARY) -f test/testcase_1.txt -w 0.5
 
