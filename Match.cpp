@@ -18,6 +18,13 @@ Match::Match(int val, int x, int y){
 	yCoor = y;
 }
 
+bool operator==(const Match& lhs, const Match& rhs) { return lhs.getXCoor() == rhs.getXCoor(); }
+bool operator!=(const Match& lhs, const Match& rhs) { return !operator==(lhs, rhs); }
+bool operator< (const Match& lhs, const Match& rhs) { return lhs.getXCoor() < rhs.getXCoor(); }
+bool operator> (const Match& lhs, const Match& rhs) { return operator< (rhs, lhs); }
+bool operator<=(const Match& lhs, const Match& rhs) { return !operator> (lhs, rhs); }
+bool operator>=(const Match& lhs, const Match& rhs) { return !operator< (lhs, rhs); }
+
 Match& Match::operator=(const Match& m){
 	matchVal = m.matchVal;
 	xCoor = m.xCoor;
@@ -29,11 +36,11 @@ int Match::getMatchVal(){
 	return matchVal;
 }
 
-int Match::getXCoor(){
+int Match::getXCoor() const {
 	return xCoor;
 }
 
-int Match::getYCoor(){
+int Match::getYCoor() const {
 	return yCoor;
 }
 
@@ -116,17 +123,22 @@ void Combo::printWithSequence(string str1, int num) {
 	}
 }
 
+void Combo::sort() {
+	::sort(comboVec.begin(), comboVec.end(), less<Match>());
+}
+
 Combo& Combo::operator=(const Combo& c){
 	score = c.getScore();
-	if (comboVec.size() > c.size()){
-		comboVec.erase(comboVec.begin()+c.size(), comboVec.size();
+	if (comboVec.size() > c.comboVec.size()){
+		comboVec.resize(c.comboVec.size());
 	}
-	for (int i = 0; i < c.size(); i++){
+	for (int i = 0; i < c.comboVec.size(); i++){
 		while (i < comboVec.size()-1){
 			comboVec[i]=c.comboVec[i];
 		}
 		comboVec.push_back(c.comboVec[i]);
 	}
+	return *this;
 }
 
 ostream& operator<<(ostream& os, const Combo& c) {

@@ -126,7 +126,7 @@ int main(int argc, const char* argv[]) {
 	}
 
 	//Remove non-valid combos
-
+cout << "here" << endl;
 	//Remove final empty combo
 	catalog.erase(catalog.size()-1);
 
@@ -141,12 +141,14 @@ int main(int argc, const char* argv[]) {
 				}
 			}
 		}
+
 		if (dupCheck) {
 			dupIndices.push_back(i);
 		}
 	}
+	cout << "after" << endl;
 
-	for (unsigned int i = dupIndices.size()-1; i >= 0; i--) {
+	/*for (unsigned int i = dupIndices.size()-1; i >= 0; i--) {
 		catalog.erase(i);
 	}
 
@@ -160,11 +162,14 @@ int main(int argc, const char* argv[]) {
 	//Remove combos that have reverse diagonals
 	for (unsigned int i = 0; i < catalog.size(); i++) {
 
-	}
+	}*/
 
 	catalog.calcScores(wonklessness);
+	cout << "1" << endl;
 	catalog.sort();
+		cout << "2" << endl;
 	catalog.printWithScores();
+		cout << "3" << endl;
 
 	//catalog.printWithScores();
 

@@ -14,8 +14,8 @@ public:
 	Match(int val, int x, int y);
 	Match& operator=(const Match& m);
 	int getMatchVal();
-	int getXCoor();
-	int getYCoor();
+	int getXCoor() const;
+	int getYCoor() const;
 	void print();
 	void halfPrint();
 
@@ -39,6 +39,7 @@ public:
 	void print();
 	void printWithScore();
 	void printWithSequence(string str1, int num);
+	void sort();
 	Combo& operator=(const Combo& c);
 
 	friend ostream& operator<<(ostream& os, const Combo& c);
