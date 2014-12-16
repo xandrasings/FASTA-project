@@ -26,6 +26,7 @@ int main(int argc, const char* argv[]) {
 	string str2 = input.at("string2");
 	int num = stoi(input.at("number"));
 	float wonklessness = stof(input.at("wonklessness"));
+	int result_count = stoi(input.at("result_count"));
 
 	cout << "Processed args: " << str1 << ' ' << str2 << ' ' << num << endl;
 

@@ -30,6 +30,7 @@ map<string, string> parse_arguments(int argc, const char* argv[]) {
 	possible_flags["-o"] = "output_file";
 	possible_flags["-h"] = "show_help";
 	possible_flags["-w"] = "wonklessness";
+	possible_flags["-c"] = "result_count";
 	possible_flags["--number"] = "number";
 	possible_flags["--string1"] = "string1";
 	possible_flags["--string2"] = "string2";
@@ -37,6 +38,7 @@ map<string, string> parse_arguments(int argc, const char* argv[]) {
 	possible_flags["--output"] = "output_file";
 	possible_flags["--help"] = "show_help";
 	possible_flags["--wonklessness"] = "wonklessness";
+	possible_flags["--result-count"] = "result_count";
 
 	if ((argc) % 2 == 0) {
 		// we have an even number of arguments.
@@ -92,7 +94,7 @@ map<string, string> get_input(map<string, string> args) {
 	// cout << "get_input" << endl;
 	map<string, string> values;
 
-	vector<string> to_look_for = {"string1", "string2", "number", "wonklessness"};
+	vector<string> to_look_for = {"string1", "string2", "number", "wonklessness", "result_count"};
 	for (string thing : to_look_for) {
 		if (args.count(thing)) {
 			values.insert(make_pair(thing, args.at(thing)));
