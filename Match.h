@@ -29,6 +29,7 @@ public: //change to protected when you fix the thing
 	vector<Match> comboVec;
 	float score;
 	bool badCombo = false;
+	bool toPrint = false;
 public:
 	Combo();
 	int size();

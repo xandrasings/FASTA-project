@@ -8,10 +8,10 @@ Professor Allen's Assignment:
 > 2. [x] An introductory paragraph describing your project.
 > 3. [x] A detailed description of the interface for your project.
 > 4. [x] Step by step description of the organization of your project from design to final product (code).
-> 5. [ ] Specs for each step in 4.
+> 5. [x] Specs for each step in 4.
 > 6. [x] The division of labor among the project team members.
 > 7. [x] Any special coding features you use/develop.
-> 8. [ ] A graphic of your code organization.
+> 8. [x] A graphic of your code organization.
 > 9. [x] Testing results.
 > 10. [x] Code.
 
@@ -42,8 +42,18 @@ It takes the input, processes it, and prints the results to STDOUT.
 We began our project by implementing the basic FASTA algorithm to print out a dot matrix of matches. We then expanded that to include classes to hold a match, a combination of matches (an alignment), and a catalog of all the matches. Next we populated the catalog with all match combination possibilities, and then edited that catalog removing the different types of invalid alignments (ones with repeating x or y coordinates, and ones with reverse diagonals). Finally we implemented a scoring system that has the ability for the user to choose how much deviation from the ideal mean line is allowed, and then printed the various information out to the user.
 
 ## The Mysterious Specs
-
-
+Class Match
+    -Holds the match location
+Class Combo
+    -Holds an alignment of matches
+Class Catalog
+    -Holds all combos
+Main
+    -Finds the matches
+    -Creates the catalog
+    -Sorts the catalog
+    -Prints out results
+    
 ## On the Division of Labour
 
 This was Xandra's idea, originally. Virginia joined the project first, followed quickly by Hawken.
