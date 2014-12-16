@@ -166,7 +166,7 @@ int main(int argc, const char* argv[]) {
 	catalog.calcScores(wonklessness);
 	catalog.sort();
 	//catalog.printWithScores();
-	catalog.finalPrint(str1, num, 5);
+	catalog.finalPrint(str1, num, result_count);
 
 	//catalog.printWithScores();
 
