@@ -39,6 +39,7 @@ public:
 	void print();
 	void printWithScore();
 	void printWithSequence(string str1, int num);
+	Combo& operator=(const Combo& c);
 
 	friend ostream& operator<<(ostream& os, const Combo& c);
 };

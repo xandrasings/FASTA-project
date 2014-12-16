@@ -125,6 +125,10 @@ int main(int argc, const char* argv[]) {
 		}
 	}
 
+	//Remove non-valid combos
+
+	//Remove final empty combo
+	catalog.erase(catalog.size()-1);
 
 	//Find all combos that have duplicate X or Y vals
 	vector<unsigned int> dupIndices; //store them here, because we can't delete during loop
@@ -135,7 +139,6 @@ int main(int argc, const char* argv[]) {
 				if (catalog.catalogVec[i].comboVec[j].getXCoor() == catalog.catalogVec[i].comboVec[k].getXCoor() || catalog.catalogVec[i].comboVec[j].getYCoor() == catalog.catalogVec[i].comboVec[k].getYCoor()) {
 					dupCheck = true;
 				}
-				//cout << i << ", " << j << ", " << k << ", " << dupCheck << endl;
 			}
 		}
 		if (dupCheck) {
@@ -143,33 +146,21 @@ int main(int argc, const char* argv[]) {
 		}
 	}
 
-	for (unsigned int i = 0; i < dupIndices.size(); i++) {
-		cout << dupIndices[i] << ", ";
-	}
-
-/*
-
-	//Remove non-valid alignments
-
-	//Remove combos that have indels
-	for (unsigned int i = 0; i < catalog.size(); i++) {
-		int w = 0;
-		for (int j = 0; j < catalog.catalogVec[i].size(); j++) {
-			if (catalog.catalogVec[i].comboVec[w].getXCoor() == catalog.catalogVec[i].comboVec[j].getXCoor() || catalog.catalogVec[i].comboVec[w].getYCoor() == catalog.catalogVec[i].comboVec[j].getYCoor()) {
-				catalog.erase(i);
-				break;
-			}
-		}
+	for (unsigned int i = dupIndices.size()-1; i >= 0; i--) {
+		catalog.erase(i);
 	}
 
 	//Order remaining combos of matches by match x-coordinate
-
+	for (unsigned int i = 0; i < catalog.size(); i++) {
+		for (int j = 0; catalog.catalogVec[i].size(); j++) {
+			
+		}
+	}
 
 	//Remove combos that have reverse diagonals
 	for (unsigned int i = 0; i < catalog.size(); i++) {
 
 	}
-*/
 
 	catalog.calcScores(wonklessness);
 	catalog.sort();
