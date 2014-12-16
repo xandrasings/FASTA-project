@@ -19,7 +19,7 @@ string prettify(int entry) {
 }
 
 int main(int argc, const char* argv[]) {
-	map<string, string> args = parse_arguments(argc, argv);
+	/*map<string, string> args = parse_arguments(argc, argv);
 	map<string, string> input = get_input(args);
 
 	string str1 = input.at("string1");
@@ -27,6 +27,13 @@ int main(int argc, const char* argv[]) {
 	int num = stoi(input.at("number"));
 	float wonklessness = stof(input.at("wonklessness"));
 	int result_count = stoi(input.at("result_count"));
+*/
+
+	string str1 = "atballgames";
+	string str2 = "billgates";
+	int num = 2;
+	float wonklessness = .15;
+	int result_count = 5;
 
 	cout << "Processed args: " << str1 << ' ' << str2 << ' ' << num << endl;
 
@@ -127,7 +134,7 @@ int main(int argc, const char* argv[]) {
 	}
 
 	//Remove non-valid combos
-cout << "here" << endl;
+
 	//Remove final empty combo
 	catalog.erase(catalog.size()-1);
 
@@ -147,27 +154,30 @@ cout << "here" << endl;
 			dupIndices.push_back(i);
 		}
 	}
-	cout << "after" << endl;
 
-	/*for (unsigned int i = dupIndices.size()-1; i >= 0; i--) {
-		catalog.erase(i);
+	if(dupIndices.size() > 0){
+	for (unsigned int i = dupIndices.size()-1; i >= 0; i--) {
+		cout << i << endl;
+		catalog.erase(dupIndices.at(i));
+		}
 	}
 
 	//Order remaining combos of matches by match x-coordinate
 	for (unsigned int i = 0; i < catalog.size(); i++) {
-		for (int j = 0; catalog.catalogVec[i].size(); j++) {
-			
-		}
+		catalog.catalogVec[i].sort();
 	}
 
-	//Remove combos that have reverse diagonals
+	/*//Remove combos that have reverse diagonals
 	for (unsigned int i = 0; i < catalog.size(); i++) {
+		for (unsigned int j = 0; j < catalog.catalogVec[i].size(); j++){
+			if ()
+		}
 
 	}*/
 
 	catalog.calcScores(wonklessness);
 	cout << "1" << endl;
-	catalog.sort();
+	//catalog.sort();
 		cout << "2" << endl;
 	catalog.printWithScores();
 		cout << "3" << endl;
