@@ -121,6 +121,15 @@ int main(int argc, const char* argv[]) {
 		}
 	}
 
+	//Remove non-valid alignments
+	for (unsigned int i =0 ; i < allMatches.size(); i++) {
+		for (unsigned int j = 0; j < pow(2,i); j++) {
+			for (unsigned int k = 0; k < pow(2,allMatches.size()-i-1); k++) {
+				
+			}
+		}
+	}
+
 	catalog.calcScores(str1.size(), str2.size());
 	//catalog.printWithScores();
 	//use this to print all combos in the catalog!
