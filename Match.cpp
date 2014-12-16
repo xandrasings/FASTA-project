@@ -125,9 +125,13 @@ void Catalog::calcScores(int str1Size, int str2Size) {
 	*/
 }
 
-void Catalog::add(Combo newCombo){
+void Catalog::add(Combo newCombo) {
 	catalogVec.push_back(newCombo);
 }
+
+void Catalog::erase(int i) {
+	catalogVec.erase(catalogVec.begin()+i);
+} 
 
 Combo Catalog::at(size_t index) {
 	return catalogVec.at(index);

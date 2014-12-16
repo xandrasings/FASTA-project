@@ -122,13 +122,26 @@ int main(int argc, const char* argv[]) {
 	}
 
 	//Remove non-valid alignments
-	for (unsigned int i =0 ; i < allMatches.size(); i++) {
-		for (unsigned int j = 0; j < pow(2,i); j++) {
-			for (unsigned int k = 0; k < pow(2,allMatches.size()-i-1); k++) {
-				
+
+	//Remove combos that have indels
+	for (unsigned int i = 0; i < catalog.size(); i++) {
+		int w = 0;
+		for (int j = 0; j < catalog.catalogVec[i].size(); j++) {
+			if (catalog.catalogVec[i].comboVec[w].getXCoor() == catalog.catalogVec[i].comboVec[j].getXCoor() || catalog.catalogVec[i].comboVec[w].getYCoor() == catalog.catalogVec[i].comboVec[j].getYCoor()) {
+				catalog.erase(i);
+				break;
 			}
 		}
 	}
+
+	//Order remaining combos of matches by match x-coordinate
+
+
+	//Remove combos that have reverse diagonals
+	for (unsigned int i = 0; i < catalog.size(); i++) {
+
+	}
+
 
 	catalog.calcScores(str1.size(), str2.size());
 	catalog.printWithScores();
